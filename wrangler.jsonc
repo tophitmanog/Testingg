@@ -6,6 +6,8 @@
   "name": "testingg",
   "main": "worker/index.js",
   "compatibility_date": "2026-10-01",
+  // Keep variables added in the Cloudflare dashboard when deploying from GitHub.
+  "keep_vars": true,
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
