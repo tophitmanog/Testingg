@@ -2,184 +2,235 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Book with Stephanie | Charisma Dental</title>
-<meta name="description" content="Book a dental appointment at Charisma Dental in Concord with Stephanie Pauls, Dental Outreach Coordinator. Open 7 days.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book with Stephanie | Charisma Dental, Concord</title>
+<meta name="description" content="Request a dental appointment at Charisma Dental in Concord with Stephanie Pauls, Dental Outreach Coordinator. Open 7 days, evenings and weekends. New patients and families welcome.">
+<meta name="theme-color" content="#127e78">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap">
 <style>
   :root {
-    --teal: #5fbdb5; --teal-d: #23857e; --teal-50: #e8f6f4; --teal-100: #cdebe7;
-    --ink: #2f3a3e; --muted: #5f6b70; --line: #dfe9e8; --bg: #fbfdfd; --card: #fff;
-    --sun: #ffd36b; --coral: #ff8a7a; --radius: 20px;
+    --teal: #3fb8b0; --teal-d: #127e78; --teal-dd: #0d5f5a; --teal-50: #e6f7f5; --teal-100: #c9eeea;
+    --coral: #ff6f5e; --coral-50: #fff0ed; --sun: #ffc23d; --sun-50: #fff7e0;
+    --lilac: #7766f2; --lilac-50: #f0eeff; --sky: #2f9bff; --sky-50: #e9f4ff; --mint: #25c48f; --mint-50: #e5f9f1;
+    --ink: #1d2a33; --muted: #566670; --line: #e3ecee; --bg: #fffbf6; --card: #fff;
+    --radius: 24px; --shadow: 0 24px 50px -28px rgba(29,42,51,.35);
+    --head: "Plus Jakarta Sans", "Nunito", system-ui, sans-serif;
   }
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { margin: 0; font-family: "Nunito", system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; font-size: 17px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+  body { margin: 0; font-family: "Nunito", system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.6; font-size: 17px; overflow-x: hidden; }
   img { display: block; max-width: 100%; }
   a { color: var(--teal-d); }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
-  h1, h2, h3 { line-height: 1.12; margin: 0 0 .4em; letter-spacing: -.01em; }
-  h1 { font-size: clamp(2.1rem, 5.5vw, 3.4rem); font-weight: 800; }
-  h2 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); font-weight: 800; }
-  .eyebrow { display: inline-block; font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--teal-d); background: var(--teal-50); padding: 6px 14px; border-radius: 99px; margin-bottom: 14px; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-weight: 800; text-decoration: none; border: 0; border-radius: 99px; padding: 14px 24px; cursor: pointer; transition: transform .15s, box-shadow .15s, background .15s; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+  h1, h2, h3 { font-family: var(--head); line-height: 1.1; margin: 0 0 .45em; letter-spacing: -.02em; color: var(--ink); }
+  h1 { font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 800; }
+  h2 { font-size: clamp(1.8rem, 4vw, 2.7rem); font-weight: 800; }
+  h3 { font-size: 1.15rem; font-weight: 700; }
+  p { margin: 0 0 1em; }
+  .grad { background: linear-gradient(100deg, var(--teal-d), var(--sky) 45%, var(--lilac) 75%, var(--coral)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: var(--head); font-size: .78rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; color: var(--teal-d); background: var(--teal-50); padding: 7px 14px; border-radius: 99px; margin-bottom: 16px; }
+  .eyebrow.coral { color: #c2412f; background: var(--coral-50); } .eyebrow.lilac { color: #5443d6; background: var(--lilac-50); }
+  .eyebrow.sun { color: #8a5a00; background: var(--sun-50); } .eyebrow.sky { color: #1a6fc2; background: var(--sky-50); }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: var(--head); font-size: 1rem; font-weight: 700; text-decoration: none; border: 0; border-radius: 99px; padding: 15px 26px; cursor: pointer; transition: transform .15s, box-shadow .15s, background .15s; min-height: 48px; }
   .btn:hover { transform: translateY(-2px); }
-  .btn-primary { background: var(--teal-d); color: #fff; box-shadow: 0 10px 24px -10px rgba(35,133,126,.7); }
-  .btn-primary:hover { background: #1c6e68; }
+  .btn:active { transform: translateY(0); }
+  .btn-primary { background: linear-gradient(135deg, var(--teal-d), var(--teal)); color: #fff; box-shadow: 0 14px 28px -12px rgba(18,126,120,.75); }
+  .btn-primary:hover { box-shadow: 0 18px 32px -12px rgba(18,126,120,.85); }
   .btn-ghost { background: #fff; color: var(--ink); border: 2px solid var(--line); }
-  .btn svg { width: 18px; height: 18px; }
-  :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+  .btn-ghost:hover { border-color: var(--teal-100); }
+  .btn svg { width: 19px; height: 19px; flex: none; }
+  :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; border-radius: 8px; }
+  [hidden] { display: none !important; }
+  .skip { position: absolute; left: -9999px; top: 8px; z-index: 100; background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 10px; }
+  .skip:focus { left: 8px; }
+
+  /* top bar */
+  .topbar { background: var(--ink); color: #cfe0e4; font-size: .88rem; }
+  .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 40px; }
+  .topbar a { color: #fff; text-decoration: none; font-weight: 700; }
+  .status-dot { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: #fff; }
+  .status-dot i { width: 9px; height: 9px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 4px rgba(37,196,143,.25); }
+  .status-dot.closed i { background: var(--sun); box-shadow: 0 0 0 4px rgba(255,194,61,.25); }
 
   /* header */
-  header { position: sticky; top: 0; z-index: 20; background: rgba(251,253,253,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
-  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  header.site { position: sticky; top: 0; z-index: 40; background: rgba(255,251,246,.88); backdrop-filter: saturate(1.4) blur(12px); -webkit-backdrop-filter: saturate(1.4) blur(12px); border-bottom: 1px solid transparent; transition: border-color .2s, box-shadow .2s; }
+  header.site.scrolled { border-color: var(--line); box-shadow: 0 10px 30px -24px rgba(29,42,51,.5); }
+  header.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 72px; }
   .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
-  .brand .dot { width: 38px; height: 38px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #c9cfd1, #9aa3a6); }
-  .brand b { display: block; font-size: .78rem; letter-spacing: .14em; color: var(--muted); font-weight: 700; }
-  .brand span { display: block; font-size: 1.25rem; letter-spacing: .1em; color: var(--teal); font-weight: 800; margin-top: -4px; }
-  header .btn { padding: 10px 18px; font-size: .95rem; }
+  .brand .mark { width: 42px; height: 42px; border-radius: 14px; display: grid; place-items: center; background: conic-gradient(from 200deg, var(--teal), var(--sky), var(--lilac), var(--coral), var(--sun), var(--teal)); }
+  .brand .mark svg { width: 24px; height: 24px; fill: #fff; }
+  .brand b { display: block; font-family: var(--head); font-size: .72rem; letter-spacing: .2em; color: var(--muted); font-weight: 700; }
+  .brand span { display: block; font-family: var(--head); font-size: 1.2rem; letter-spacing: .12em; color: var(--teal-d); font-weight: 800; margin-top: -3px; }
+  nav.main { display: flex; gap: 4px; }
+  nav.main a { font-family: var(--head); font-weight: 700; font-size: .95rem; color: var(--ink); text-decoration: none; padding: 8px 14px; border-radius: 99px; }
+  nav.main a:hover, nav.main a.on { background: var(--teal-50); color: var(--teal-d); }
+  header.site .btn { padding: 11px 20px; min-height: 0; }
 
   /* hero */
-  .hero { padding: 48px 0 56px; background: radial-gradient(700px 400px at 90% 0%, var(--teal-50), transparent 70%), radial-gradient(500px 300px at 0% 100%, #fff6dd, transparent 70%); }
-  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
-  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 34em; margin: 0 0 24px; }
+  html, body { overflow-x: clip; }
+  .hero { position: relative; padding: 56px 0 72px; overflow: hidden; isolation: isolate; contain: paint; }
+  .blob { position: absolute; border-radius: 50%; filter: blur(50px); opacity: .55; z-index: -1; animation: drift 18s ease-in-out infinite alternate; }
+  .blob.b1 { width: 420px; height: 420px; background: var(--teal-100); top: -120px; right: -60px; }
+  .blob.b2 { width: 320px; height: 320px; background: #ffd9d2; bottom: -80px; left: -80px; animation-delay: -6s; }
+  .blob.b3 { width: 260px; height: 260px; background: #e2ddff; top: 30%; left: 40%; animation-delay: -12s; }
+  .blob.b4 { width: 220px; height: 220px; background: #ffeab8; top: 8%; left: 6%; animation-delay: -3s; }
+  @keyframes drift { to { transform: translate(40px, 30px) scale(1.08); } }
+  .hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: 48px; align-items: center; }
+  .hello { font-family: var(--head); font-weight: 700; color: var(--coral); margin-bottom: 8px; font-size: 1.05rem; }
+  .hero .lead { font-size: 1.18rem; color: var(--muted); max-width: 33em; margin-bottom: 28px; }
   .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-  .hero figure { margin: 0; position: relative; }
-  .hero figure img { border-radius: 28px; aspect-ratio: 4/4.4; object-fit: cover; width: 100%; box-shadow: 0 30px 60px -30px rgba(47,58,62,.45); }
-  .badge { position: absolute; left: -16px; bottom: 24px; background: #fff; border-radius: 16px; padding: 12px 16px; box-shadow: 0 14px 30px -14px rgba(47,58,62,.4); font-weight: 800; font-size: .95rem; }
-  .badge small { display: block; font-weight: 600; color: var(--muted); font-size: .8rem; }
-  .facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; padding: 0; list-style: none; }
-  .facts li { background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; font-weight: 700; font-size: .9rem; }
+  .trust { display: flex; flex-wrap: wrap; gap: 10px; margin: 26px 0 0; padding: 0; list-style: none; }
+  .trust li { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 7px 14px 7px 8px; font-weight: 700; font-size: .9rem; box-shadow: 0 6px 16px -12px rgba(29,42,51,.4); }
+  .trust i { width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-style: normal; font-size: .8rem; color: #fff; }
+  .trust li:nth-child(1) i { background: var(--mint); } .trust li:nth-child(2) i { background: var(--lilac); } .trust li:nth-child(3) i { background: var(--coral); }
+  .trust i svg { width: 14px; height: 14px; stroke: #fff; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+  .hero-art { position: relative; }
+  .hero-art .frame { border-radius: 36px; overflow: hidden; box-shadow: var(--shadow); transform: rotate(2deg); background: linear-gradient(135deg, var(--teal), var(--lilac)); padding: 8px; }
+  .hero-art .frame img { border-radius: 30px; aspect-ratio: 4/4.5; object-fit: cover; width: 100%; }
+  .float { position: absolute; background: #fff; border-radius: 18px; padding: 12px 16px; box-shadow: 0 18px 36px -18px rgba(29,42,51,.45); display: flex; align-items: center; gap: 12px; font-family: var(--head); font-weight: 700; font-size: .95rem; animation: bob 5s ease-in-out infinite; }
+  .float small { display: block; font-family: "Nunito", sans-serif; font-weight: 600; color: var(--muted); font-size: .8rem; }
+  .float .ic { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; flex: none; }
+  .float .ic svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .float.f1 { left: -28px; top: 14%; } .float.f1 .ic { background: var(--sun); }
+  .float.f2 { right: -18px; bottom: 16%; animation-delay: -2.5s; } .float.f2 .ic { background: var(--coral); }
+  @keyframes bob { 50% { transform: translateY(-10px); } }
+
+  /* quick actions */
+  .quick { margin-top: -36px; position: relative; z-index: 2; }
+  .quick .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .qa { display: flex; align-items: center; gap: 14px; padding: 18px; border-radius: 20px; text-decoration: none; color: var(--ink); background: #fff; border: 1px solid var(--line); box-shadow: 0 16px 34px -26px rgba(29,42,51,.55); transition: transform .15s, box-shadow .15s; }
+  .qa:hover { transform: translateY(-3px); box-shadow: 0 22px 40px -24px rgba(29,42,51,.55); }
+  .qa .ic { width: 48px; height: 48px; border-radius: 16px; display: grid; place-items: center; flex: none; }
+  .qa .ic svg { width: 24px; height: 24px; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .qa b { display: block; font-family: var(--head); font-size: 1.02rem; }
+  .qa small { color: var(--muted); font-weight: 600; font-size: .85rem; }
+  .qa:nth-child(1) .ic { background: linear-gradient(135deg, var(--teal-d), var(--teal)); }
+  .qa:nth-child(2) .ic { background: linear-gradient(135deg, #e5533f, var(--coral)); }
+  .qa:nth-child(3) .ic { background: linear-gradient(135deg, #5a49e0, var(--lilac)); }
+  .qa:nth-child(4) .ic { background: linear-gradient(135deg, #e9a200, var(--sun)); }
+
+  /* sections */
+  section { padding: 88px 0; }
+  .center { text-align: center; max-width: 44em; margin: 0 auto 40px; }
+  .center p { color: var(--muted); margin: 0; font-size: 1.08rem; }
 
   /* services */
-  section { padding: 64px 0; }
-  .center { text-align: center; max-width: 40em; margin: 0 auto 32px; }
-  .center p { color: var(--muted); margin: 0; }
-  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
-  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .2s, box-shadow .2s; }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -24px rgba(47,58,62,.45); }
-  .card img { aspect-ratio: 4/3; object-fit: cover; width: 100%; }
-  .card div { padding: 16px 18px 20px; }
-  .card h3 { font-size: 1.1rem; }
-  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .svc { --c: var(--teal); --c50: var(--teal-50); display: flex; flex-direction: column; background: var(--card); border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); transition: transform .2s, box-shadow .2s; }
+  .svc:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .svc .ph { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--c50); }
+  .svc .ph img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+  .svc:hover .ph img { transform: scale(1.06); }
+  .svc .tag { position: absolute; left: 14px; top: 14px; background: var(--c); color: #fff; font-family: var(--head); font-weight: 700; font-size: .78rem; padding: 5px 12px; border-radius: 99px; }
+  .svc .body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; border-top: 5px solid var(--c); }
+  .svc p { color: var(--muted); font-size: .96rem; flex: 1; margin-bottom: 14px; }
+  .svc .book-this { align-self: flex-start; font-family: var(--head); font-weight: 700; font-size: .92rem; text-decoration: none; color: var(--ink); background: var(--c50); padding: 9px 16px; border-radius: 99px; transition: background .15s, color .15s; }
+  .svc .book-this:hover { background: var(--c); color: #fff; }
+  .svc.c2 { --c: var(--coral); --c50: var(--coral-50); } .svc.c3 { --c: var(--lilac); --c50: var(--lilac-50); }
+  .svc.c4 { --c: #e9a200; --c50: var(--sun-50); } .svc.c5 { --c: var(--sky); --c50: var(--sky-50); } .svc.c6 { --c: var(--mint); --c50: var(--mint-50); }
+
+  /* how it works */
+  .how-sec { background: linear-gradient(180deg, #fff, var(--teal-50)); }
+  .steps-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; counter-reset: s; position: relative; }
+  .hstep { background: #fff; border-radius: var(--radius); padding: 28px 24px; border: 1px solid var(--line); position: relative; }
+  .hstep .num { width: 54px; height: 54px; border-radius: 18px; display: grid; place-items: center; font-family: var(--head); font-weight: 800; font-size: 1.4rem; color: #fff; margin-bottom: 16px; }
+  .hstep:nth-child(1) .num { background: linear-gradient(135deg, var(--teal-d), var(--teal)); }
+  .hstep:nth-child(2) .num { background: linear-gradient(135deg, #5a49e0, var(--lilac)); }
+  .hstep:nth-child(3) .num { background: linear-gradient(135deg, #e5533f, var(--coral)); }
+  .hstep p { color: var(--muted); margin: 0; }
+
+  /* highlights */
+  .highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .hl-art { position: relative; }
+  .hl-art img { border-radius: 30px; box-shadow: var(--shadow); aspect-ratio: 5/4; object-fit: cover; width: 100%; }
+  .hl-art .sticker { position: absolute; right: -14px; top: -14px; width: 116px; height: 116px; border-radius: 50%; background: var(--sun); display: grid; place-items: center; text-align: center; font-family: var(--head); font-weight: 800; line-height: 1.1; font-size: 1rem; transform: rotate(10deg); box-shadow: 0 16px 30px -16px rgba(29,42,51,.5); }
+  .hl-list { list-style: none; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .hl-list li { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 16px; }
+  .hl-list b { display: block; font-family: var(--head); margin-bottom: 2px; }
+  .hl-list span { color: var(--muted); font-size: .92rem; }
+  .hl-list li::before { content: ""; display: block; width: 32px; height: 6px; border-radius: 99px; margin-bottom: 10px; background: var(--teal); }
+  .hl-list li:nth-child(2)::before { background: var(--coral); } .hl-list li:nth-child(3)::before { background: var(--lilac); } .hl-list li:nth-child(4)::before { background: var(--sun); }
 
   /* booking */
-  .book { background: linear-gradient(160deg, var(--teal-50), #f3fbfa 60%, #fff); }
-  .book .wrap { display: grid; grid-template-columns: .85fr 1.15fr; gap: 36px; align-items: start; }
-  .contact-card { background: var(--ink); color: #e6eeef; border-radius: var(--radius); padding: 28px; }
-  .contact-card h3 { color: #fff; font-size: 1.35rem; }
-  .contact-card .role { color: var(--teal); font-weight: 800; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin: -4px 0 18px; }
-  .contact-card ul { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 12px; }
+  .book { background: radial-gradient(800px 400px at 100% 0%, var(--lilac-50), transparent 60%), radial-gradient(700px 400px at 0% 100%, var(--coral-50), transparent 60%), var(--teal-50); }
+  .book .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 32px; align-items: start; }
+  .contact-card { background: linear-gradient(160deg, #1d2a33, #23414a); color: #d8e6e9; border-radius: var(--radius); padding: 30px; position: sticky; top: 96px; overflow: hidden; }
+  .contact-card::after { content: ""; position: absolute; width: 220px; height: 220px; border-radius: 50%; right: -80px; top: -80px; background: radial-gradient(circle, rgba(63,184,176,.5), transparent 70%); }
+  .contact-card .avatar { width: 64px; height: 64px; border-radius: 20px; display: grid; place-items: center; font-family: var(--head); font-weight: 800; font-size: 1.5rem; color: var(--ink); background: linear-gradient(135deg, var(--sun), var(--coral)); margin-bottom: 14px; }
+  .contact-card h3 { color: #fff; font-size: 1.4rem; margin-bottom: 2px; }
+  .contact-card .role { color: var(--teal); font-family: var(--head); font-weight: 800; font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; margin: 0 0 20px; }
+  .contact-card ul { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 12px; }
   .contact-card li { display: flex; gap: 12px; align-items: flex-start; }
   .contact-card li svg { flex: none; width: 20px; height: 20px; margin-top: 3px; color: var(--teal); }
   .contact-card a { color: #fff; text-decoration: none; word-break: break-word; }
   .contact-card a:hover { text-decoration: underline; }
-  .hours { border-top: 1px solid rgba(255,255,255,.15); padding-top: 16px; font-size: .95rem; }
-  .hours div { display: flex; justify-content: space-between; gap: 12px; }
-  form { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 30px 60px -40px rgba(47,58,62,.5); }
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .field { display: grid; gap: 6px; margin-bottom: 14px; }
-  label, legend { font-weight: 700; font-size: .92rem; }
-  .req { color: #c0392b; }
-  input, select, textarea { font: inherit; font-size: 1rem; color: var(--ink); width: 100%; padding: 12px 14px; border: 2px solid var(--line); border-radius: 12px; background: #fff; }
-  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px var(--teal-50); }
-  textarea { min-height: 96px; resize: vertical; }
-  fieldset { border: 0; padding: 0; margin: 0 0 14px; }
-  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-  .chips label { font-weight: 600; display: inline-flex; align-items: center; gap: 6px; border: 2px solid var(--line); border-radius: 99px; padding: 8px 14px; cursor: pointer; }
-  .chips input { width: auto; accent-color: var(--teal-d); }
-  .chips label:has(input:checked) { border-color: var(--teal); background: var(--teal-50); }
-  .consent { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; font-size: .9rem; color: var(--muted); margin: 4px 0 18px; }
-  .consent input { width: auto; margin-top: 4px; accent-color: var(--teal-d); }
-  .hp { position: absolute; left: -9999px; }
-  .err { color: #c0392b; font-size: .85rem; font-weight: 700; display: none; }
-  .invalid .err { display: block; }
-  .invalid input, .invalid select { border-color: #e58c80; }
-  .status { margin-top: 14px; font-weight: 700; }
-  .done { text-align: center; padding: 40px 20px; }
-  .done .tick { width: 72px; height: 72px; border-radius: 50%; background: var(--teal-50); color: var(--teal-d); display: grid; place-items: center; margin: 0 auto 16px; }
-  .done .tick svg { width: 36px; height: 36px; }
-  form .btn { width: 100%; font-size: 1.05rem; }
-  .note { font-size: .82rem; color: var(--muted); margin-top: 12px; text-align: center; }
-
-  footer { background: var(--ink); color: #b8c4c7; padding: 28px 0 96px; font-size: .9rem; }
-  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
-  footer a { color: #fff; }
-
-  .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: none; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -10px 30px -20px rgba(0,0,0,.4); }
-  .mbar .btn { flex: 1; padding: 12px 10px; font-size: .95rem; }
-
-  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
-  .reveal.in { opacity: 1; transform: none; }
-
-  @media (max-width: 900px) {
-    .hero .wrap, .book .wrap { grid-template-columns: 1fr; }
-    .hero figure { max-width: 460px; }
-    .cards { grid-template-columns: 1fr 1fr; }
-  }
-  @media (max-width: 560px) {
-    body { font-size: 16px; }
-    .cards, .grid2 { grid-template-columns: 1fr; }
-    header .btn { display: none; }
-    .mbar { display: flex; }
-    form, .contact-card { padding: 20px; }
-    .badge { left: 12px; }
-    section { padding: 48px 0; }
-  }
-  @media (min-width: 561px) { footer { padding-bottom: 28px; } }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-    .btn, .card { transition: none; }
-  }
-
-  /* booking card */
-  .how { margin: 22px 0 0; padding: 18px 0 0 0; border-top: 1px solid rgba(255,255,255,.15); list-style: none; counter-reset: how; display: grid; gap: 10px; font-size: .95rem; }
+  .hours { border-top: 1px solid rgba(255,255,255,.14); padding-top: 16px; font-size: .95rem; }
+  .hours div { display: flex; justify-content: space-between; gap: 12px; padding: 4px 8px; border-radius: 8px; }
+  .hours div.today { background: rgba(63,184,176,.18); color: #fff; font-weight: 700; }
+  .how { margin: 20px 0 0; padding: 18px 0 0; border-top: 1px solid rgba(255,255,255,.14); list-style: none; counter-reset: how; display: grid; gap: 10px; font-size: .95rem; }
   .how li { counter-increment: how; display: flex; gap: 10px; align-items: baseline; }
   .how li::before { content: counter(how); flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--teal); color: var(--ink); font-weight: 800; font-size: .8rem; display: grid; place-items: center; }
   .how b { color: #fff; }
-  .booker { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 30px 60px -40px rgba(47,58,62,.5); }
-  .booker-head h2 { font-size: 1.6rem; }
+
+  .booker { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; box-shadow: 0 40px 70px -46px rgba(29,42,51,.6); }
+  .booker-head h2 { font-size: 1.7rem; }
   .steps { list-style: none; padding: 0; margin: 14px 0 10px; display: flex; justify-content: space-between; gap: 6px; }
-  .steps li { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: .85rem; color: var(--muted); }
-  .steps span { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--line); font-size: .8rem; background: #fff; transition: background .2s, border-color .2s, color .2s; }
+  .steps li { display: flex; align-items: center; gap: 8px; font-family: var(--head); font-weight: 700; font-size: .88rem; color: var(--muted); }
+  .steps span { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--line); font-size: .82rem; background: #fff; transition: background .2s, border-color .2s, color .2s, transform .2s; }
   .steps li.on { color: var(--ink); }
-  .steps li.on span { border-color: var(--teal-d); background: var(--teal-d); color: #fff; }
+  .steps li.on span { border-color: transparent; background: linear-gradient(135deg, var(--teal-d), var(--teal)); color: #fff; transform: scale(1.1); }
   .steps li.done span { border-color: var(--teal); background: var(--teal-50); color: var(--teal-d); }
-  .bar { height: 6px; border-radius: 99px; background: var(--teal-50); overflow: hidden; margin-bottom: 20px; }
-  .bar i { display: block; height: 100%; width: 25%; border-radius: inherit; background: linear-gradient(90deg, var(--teal), var(--teal-d)); transition: width .35s ease; }
+  .bar { height: 8px; border-radius: 99px; background: #eef3f4; overflow: hidden; margin-bottom: 22px; }
+  .bar i { display: block; height: 100%; width: 25%; border-radius: inherit; background: linear-gradient(90deg, var(--teal), var(--sky), var(--lilac), var(--coral)); background-size: 400px 100%; transition: width .4s ease; }
   .step { border: 0; padding: 0; margin: 0 0 8px; min-width: 0; }
-  .step-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 14px; padding: 0; }
+  .step-title { font-family: var(--head); font-size: 1.25rem; font-weight: 800; margin-bottom: 16px; padding: 0; }
   .js .step { display: none; }
   .js .step.active { display: block; animation: slidein .35s ease; }
   @keyframes slidein { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
-  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
-  .tile { position: relative; display: grid; gap: 8px; justify-items: start; padding: 14px; border: 2px solid var(--line); border-radius: 16px; cursor: pointer; font-weight: 700; font-size: .95rem; line-height: 1.25; transition: border-color .15s, background .15s, transform .15s; }
-  .tile:hover { transform: translateY(-2px); border-color: var(--teal-100); }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .tile { --c: var(--teal-d); --c50: var(--teal-50); position: relative; display: grid; gap: 10px; justify-items: start; padding: 16px; border: 2px solid var(--line); border-radius: 18px; cursor: pointer; font-family: var(--head); font-weight: 700; font-size: .95rem; line-height: 1.25; transition: border-color .15s, background .15s, transform .15s; background: #fff; }
+  .tile:nth-child(2) { --c: var(--sky); --c50: var(--sky-50); } .tile:nth-child(3) { --c: #d8432f; --c50: var(--coral-50); }
+  .tile:nth-child(4) { --c: #e09a00; --c50: var(--sun-50); } .tile:nth-child(5) { --c: var(--lilac); --c50: var(--lilac-50); }
+  .tile:nth-child(6) { --c: var(--mint); --c50: var(--mint-50); } .tile:nth-child(7) { --c: var(--muted); --c50: #f1f4f5; }
+  .tile:hover { transform: translateY(-2px); border-color: var(--c); }
   .tile input { position: absolute; opacity: 0; pointer-events: none; }
-  .tile svg { width: 26px; height: 26px; fill: none; stroke: var(--teal-d); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .tile.urgent svg { stroke: #d0543f; }
-  .tile:has(input:checked) { border-color: var(--teal-d); background: var(--teal-50); }
-  .tile.urgent:has(input:checked) { border-color: #d0543f; background: #fff1ee; }
+  .tile svg { width: 34px; height: 34px; padding: 6px; border-radius: 11px; background: var(--c50); fill: none; stroke: var(--c); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .tile:has(input:checked) { border-color: var(--c); background: var(--c50); box-shadow: 0 10px 22px -16px var(--c); }
+  .tile:has(input:checked) svg { background: var(--c); stroke: #fff; }
   .tile:has(input:focus-visible) { outline: 3px solid var(--sun); outline-offset: 2px; }
-  .alert { margin: 14px 0; padding: 12px 14px; border-radius: 14px; background: #fff1ee; border: 1px solid #f6c4bb; font-size: .95rem; }
+  .alert { margin: 14px 0; padding: 12px 14px; border-radius: 14px; background: var(--coral-50); border: 1px solid #f6c4bb; font-size: .95rem; }
   .alert a { font-weight: 800; color: #b23a26; }
-  .label { font-weight: 700; font-size: .92rem; }
-  label small, .label small { font-weight: 600; color: var(--muted); }
-  .chips small { color: var(--muted); font-weight: 600; font-size: .8rem; }
+  .field { display: grid; gap: 6px; margin-bottom: 16px; }
   .field.narrow { max-width: 260px; }
-  .hint { font-size: .88rem; color: #8a5a00; background: #fff6dd; border-radius: 10px; padding: 8px 12px; margin: 8px 0 0; }
-  .summary { display: grid; grid-template-columns: auto 1fr auto; gap: 0; margin: 0 0 16px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
-  .summary dt, .summary dd { margin: 0; padding: 10px 12px; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  label, legend, .label { font-weight: 700; font-size: .93rem; }
+  label small, .label small { font-weight: 600; color: var(--muted); }
+  .req { color: #c0392b; }
+  input, select, textarea { font: inherit; font-size: 1rem; color: var(--ink); width: 100%; padding: 13px 14px; border: 2px solid var(--line); border-radius: 14px; background: #fff; min-height: 50px; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px var(--teal-50); }
+  textarea { min-height: 96px; resize: vertical; }
+  fieldset { border: 0; padding: 0; margin: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 2px; }
+  .chips label { font-weight: 700; display: inline-flex; align-items: center; gap: 7px; border: 2px solid var(--line); border-radius: 99px; padding: 9px 15px; cursor: pointer; background: #fff; min-height: 44px; transition: border-color .15s, background .15s; }
+  .chips label:hover { border-color: var(--teal-100); }
+  .chips input { width: auto; min-height: 0; accent-color: var(--teal-d); margin: 0; }
+  .chips label:has(input:checked) { border-color: var(--teal); background: var(--teal-50); color: var(--teal-dd); }
+  .chips small { color: var(--muted); font-weight: 600; font-size: .8rem; }
+  .hint { font-size: .88rem; color: #7a4f00; background: var(--sun-50); border-radius: 12px; padding: 9px 12px; margin: 8px 0 0; }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; font-size: .92rem; color: var(--muted); }
+  .consent input { width: 20px; height: 20px; min-height: 0; margin-top: 3px; accent-color: var(--teal-d); flex: none; }
+  .hp { position: absolute; left: -9999px; }
+  .summary { display: grid; grid-template-columns: auto 1fr auto; margin: 0 0 16px; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #fcfefe; }
+  .summary dt, .summary dd { margin: 0; padding: 11px 12px; border-bottom: 1px solid var(--line); font-size: .95rem; }
   .summary dt { color: var(--muted); font-weight: 700; }
   .summary dd { font-weight: 700; word-break: break-word; }
   .summary dd.edit { padding: 6px 10px; display: flex; align-items: center; }
-  .summary dd.edit button { font: inherit; font-size: .82rem; font-weight: 800; color: var(--teal-d); background: var(--teal-50); border: 0; border-radius: 99px; padding: 4px 10px; cursor: pointer; }
+  .summary dd.edit button { font: inherit; font-size: .82rem; font-weight: 800; color: var(--teal-d); background: var(--teal-50); border: 0; border-radius: 99px; padding: 5px 12px; cursor: pointer; }
   .summary > :nth-last-child(-n+3) { border-bottom: 0; }
   .nav { display: flex; gap: 10px; justify-content: space-between; margin-top: 6px; }
-  .nav .btn { flex: 1; }
+  .nav .btn { flex: 1; width: auto; }
   .nav [data-back], .nav [data-next] { display: none; }
   .js .nav [data-next] { display: inline-flex; }
   .js .nav [type=submit] { display: none; }
@@ -187,87 +238,227 @@
   .js .booker:not(.first) .nav [data-back] { display: inline-flex; flex: 0 0 auto; }
   .js .booker.last .nav [data-next] { display: none; }
   .js .booker.last .nav [type=submit] { display: inline-flex; }
-  .err { color: #c0392b; font-size: .85rem; font-weight: 700; margin: 4px 0 0; display: none; }
+  .err { color: #c0392b; font-size: .86rem; font-weight: 700; margin: 4px 0 0; display: none; }
   .err.show { display: block; }
   .bad input:not([type=radio]):not([type=checkbox]), .bad select { border-color: #e58c80; }
+  .status { margin: 10px 0; font-weight: 700; }
+  .status:empty { display: none; }
   .fallback { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 12px; }
   .fallback .btn { flex: 1; }
-  .booker.done { text-align: center; padding: 40px 24px; }
-  .booker.done .tick { width: 76px; height: 76px; border-radius: 50%; background: var(--teal-50); color: var(--teal-d); display: grid; place-items: center; margin: 0 auto 16px; animation: pop .5s cubic-bezier(.2,1.6,.4,1); }
-  .booker.done .tick svg { width: 38px; height: 38px; }
+  .note { font-size: .84rem; color: var(--muted); margin: 12px 0 0; text-align: center; }
+  .booker.done { text-align: center; padding: 48px 24px; }
+  .booker.done .tick { width: 84px; height: 84px; border-radius: 50%; background: linear-gradient(135deg, var(--mint), var(--teal)); color: #fff; display: grid; place-items: center; margin: 0 auto 18px; animation: pop .5s cubic-bezier(.2,1.6,.4,1); box-shadow: 0 0 0 10px var(--mint-50); }
+  .booker.done .tick svg { width: 40px; height: 40px; }
   @keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
-  .booker.done p { color: var(--muted); }
-  .muted { color: var(--muted); }
-  .card .book-this { display: inline-block; margin-top: 10px; font-weight: 800; font-size: .9rem; text-decoration: none; }
-  @media (max-width: 560px) {
-    .booker { padding: 20px; }
+  .booker.done p, .muted { color: var(--muted); }
+
+  /* visit */
+  .visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: stretch; }
+  .map { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); min-height: 340px; background: var(--teal-50); }
+  .map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; }
+  .visit-info { display: grid; gap: 14px; align-content: start; }
+  .info-card { background: #fff; border: 1px solid var(--line); border-radius: 20px; padding: 20px 22px; }
+  .info-card h3 { display: flex; align-items: center; gap: 10px; }
+  .info-card h3 i { width: 12px; height: 12px; border-radius: 4px; background: var(--c, var(--teal)); }
+  .info-card p { color: var(--muted); margin: 0; }
+  .info-card .hours div { padding: 5px 8px; }
+  .info-card .hours { border: 0; padding: 0; }
+  .info-card .hours div.today { background: var(--teal-50); color: var(--teal-dd); }
+
+  /* faq */
+  .faq { max-width: 820px; margin: 0 auto; display: grid; gap: 12px; }
+  .faq details { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 0 22px; transition: box-shadow .2s; }
+  .faq details[open] { box-shadow: 0 18px 36px -28px rgba(29,42,51,.5); }
+  .faq summary { list-style: none; cursor: pointer; padding: 18px 0; font-family: var(--head); font-weight: 700; font-size: 1.05rem; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; flex: none; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--teal-50); color: var(--teal-d); font-size: 1.3rem; transition: transform .2s; }
+  .faq details[open] summary::after { transform: rotate(45deg); background: var(--coral-50); color: #c2412f; }
+  .faq details p { color: var(--muted); padding-bottom: 18px; margin: 0; }
+
+  /* cta + footer */
+  .cta { padding: 0 0 88px; }
+  .cta-box { border-radius: 32px; padding: 48px; color: #fff; background: linear-gradient(120deg, var(--teal-d), #1f8fd0 50%, var(--lilac)); display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; position: relative; overflow: hidden; }
+  .cta-box::before { content: ""; position: absolute; width: 300px; height: 300px; border-radius: 50%; right: -60px; bottom: -160px; background: rgba(255,194,61,.45); filter: blur(10px); }
+  .cta-box h2 { color: #fff; margin: 0 0 6px; }
+  .cta-box p { margin: 0; opacity: .9; }
+  .cta-box .btn-ghost { border-color: transparent; position: relative; }
+  footer { background: var(--ink); color: #a9bcc1; padding: 36px 0 110px; font-size: .92rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; }
+  footer a { color: #fff; }
+
+  .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; display: none; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.96); backdrop-filter: blur(10px); border-top: 1px solid var(--line); box-shadow: 0 -12px 30px -20px rgba(0,0,0,.45); }
+  .mbar .btn { flex: 1; padding: 12px 8px; font-size: .95rem; }
+  .mbar .call { background: var(--coral-50); color: #b23a26; border: 0; }
+  .mbar .text { background: var(--lilac-50); color: #4a3bc9; border: 0; }
+
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 980px) {
+    nav.main { display: none; }
+    .hero .wrap, .book .wrap, .highlights, .visit .wrap { grid-template-columns: 1fr; }
+    .hero-art { max-width: 480px; margin: 0 auto; }
+    .services { grid-template-columns: 1fr 1fr; }
+    .quick .wrap { grid-template-columns: 1fr 1fr; }
+    .contact-card { position: static; }
+    .steps-row { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    body { font-size: 16px; }
+    .wrap { padding: 0 16px; }
+    section { padding: 64px 0; }
+    .topbar .hide-sm, .topbar .wrap > span:last-child { display: none; }
+    .topbar { font-size: .84rem; }
+    .hero-art .frame img { aspect-ratio: 1 / 1; object-position: center 20%; }
+    .trust li { font-size: .85rem; padding: 6px 12px 6px 6px; }
+    .float { font-size: .85rem; padding: 10px 12px; }
+    .float .ic { width: 32px; height: 32px; }
+    header.site .btn { display: none; }
+    .hero { padding: 36px 0 64px; }
+    .hero .actions .btn { flex: 1 1 100%; }
+    .float.f1 { left: -6px; } .float.f2 { right: -4px; }
+    .services, .grid2, .hl-list { grid-template-columns: 1fr; }
+    .quick .wrap { gap: 10px; }
+    .qa { flex-direction: column; align-items: flex-start; gap: 10px; padding: 14px; }
+    .qa small { display: none; }
+    .booker, .contact-card { padding: 20px; }
     .steps li { font-size: 0; gap: 0; }
-    .steps span { font-size: .8rem; }
+    .steps span { font-size: .82rem; }
     .tiles { grid-template-columns: 1fr 1fr; }
     .summary { grid-template-columns: 1fr auto; }
     .summary dt { grid-column: 1 / -1; padding-bottom: 0; border-bottom: 0; font-size: .8rem; }
     .summary > :nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
     .summary > :nth-last-child(-n+2) { border-bottom: 0; }
+    .cta-box { padding: 32px 24px; }
+    .cta-box .btn { width: 100%; }
+    .mbar { display: flex; }
+    .hl-art .sticker { width: 92px; height: 92px; font-size: .85rem; right: -4px; }
   }
+  @media (min-width: 601px) { footer { padding-bottom: 36px; } }
   @media (prefers-reduced-motion: reduce) {
-    .js .step.active, .booker.done .tick { animation: none; }
-    .bar i, .tile { transition: none; }
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .blob, .float, .js .step.active, .booker.done .tick { animation: none; }
+    .btn, .svc, .svc .ph img, .qa, .tile, .bar i { transition: none; }
   }
-  .booker .btn, .nav .btn { width: auto; }
-  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
+<a class="skip" href="#book">Skip to booking</a>
 
-<header>
+<div class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top" aria-label="Charisma Dental">
-      <i class="dot" aria-hidden="true"></i>
-      <div><b>CHARISMA</b><span>DENTAL</span></div>
+    <span class="status-dot" id="openStatus"><i></i><span>Open 7 days a week</span></span>
+    <span><span class="hide-sm">Questions? Call or text </span><a href="tel:+16476296061">647-629-6061</a></span>
+  </div>
+</div>
+
+<header class="site" id="siteHeader">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Charisma Dental, home">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3c-2.5 0-4 2-4 4.5 0 3 1.5 5 2 8s1 5.5 2.5 5.5S9.5 17 12 17s2.5 4 4.5 4 2-2.5 2.5-5.5 2-5 2-8C21 5 19.5 3 17 3c-2 0-3 1-5 1S9 3 7 3z"/></svg></span>
+      <span><b>CHARISMA</b><span>DENTAL</span></span>
     </a>
+    <nav class="main" aria-label="Main">
+      <a href="#services">Services</a>
+      <a href="#how">How it works</a>
+      <a href="#visit">Visit</a>
+      <a href="#faq">FAQ</a>
+    </nav>
     <a class="btn btn-primary" href="#book">Book a visit</a>
   </div>
 </header>
 
 <main id="top">
   <section class="hero">
+    <i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i><i class="blob b4"></i>
     <div class="wrap">
       <div>
-        <span class="eyebrow">Charisma Dental · Concord</span>
-        <h1>Book your visit with Stephanie</h1>
-        <p class="lead">Hi, I'm Stephanie, the Dental Outreach Coordinator at Charisma Dental. Send me a request and I'll personally call or text you back to set up your appointment.</p>
+        <p class="hello" id="greeting">Hello there!</p>
+        <h1>Your smile, <span class="grad">booked in a minute.</span></h1>
+        <p class="lead">I'm Stephanie, Dental Outreach Coordinator at Charisma Dental in Concord. Tell me what you need and when suits you, and I'll personally get back to you to set up your visit.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="#book">Request an appointment</a>
+          <a class="btn btn-primary" href="#book">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+            Request an appointment
+          </a>
           <a class="btn btn-ghost" href="tel:+16476296061">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
-            647-629-6061
+            Call 647-629-6061
           </a>
         </div>
-        <ul class="facts">
-          <li>Open 7 days</li>
-          <li>New patients welcome</li>
-          <li>Families &amp; kids</li>
+        <ul class="trust">
+          <li><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>Open 7 days</li>
+          <li><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>New patients welcome</li>
+          <li><i><svg viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></svg></i>Kids &amp; families</li>
         </ul>
       </div>
-      <figure class="reveal">
-        <img src="img/hero-smile.webp" alt="Smiling patient" width="800" height="880">
-        <div class="badge">I'll get back to you<small>by phone or text</small></div>
-      </figure>
+      <div class="hero-art reveal">
+        <div class="frame"><img src="img/hero-smile.webp" alt="Smiling patient in a dental chair" width="800" height="900" fetchpriority="high"></div>
+        <div class="float f1"><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span>Evenings &amp; weekends<small>Mon–Fri till 9pm</small></span></div>
+        <div class="float f2"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span>A real person replies<small>by call, text or email</small></span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="quick">
+    <div class="wrap">
+      <a class="qa" href="#book"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span><span><b>Book a visit</b><small>Four quick steps</small></span></a>
+      <a class="qa" href="tel:+16476296061"><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span><span><b>Call me</b><small>647-629-6061</small></span></a>
+      <a class="qa" href="sms:+16476296061"><span class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span><b>Text me</b><small>Quick questions</small></span></a>
+      <a class="qa" href="https://www.google.com/maps/dir/?api=1&destination=9000+Jane+Street+Concord+ON+L4K+0M6" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><b>Directions</b><small>9000 Jane St, Concord</small></span></a>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="center reveal">
+        <span class="eyebrow coral">How I can help</span>
+        <h2>Care for every smile in the family</h2>
+        <p>Pick what you need and I'll find a time that works for you.</p>
+      </div>
+      <div class="services">
+        <article class="svc reveal"><div class="ph"><img src="img/cleaning.webp" alt="" loading="lazy" width="600" height="375"><span class="tag">Most booked</span></div><div class="body"><h3>Cleanings &amp; check-ups</h3><p>Regular visits to keep your teeth and gums healthy.</p><a class="book-this" href="#book" data-book="Check-up &amp; cleaning">Book this &rarr;</a></div></article>
+        <article class="svc c3 reveal"><div class="ph"><img src="img/family.webp" alt="" loading="lazy" width="600" height="375"><span class="tag">Welcome</span></div><div class="body"><h3>New patients</h3><p>New to the clinic? I'll help you get set up and booked in.</p><a class="book-this" href="#book" data-book="New patient exam">Book this &rarr;</a></div></article>
+        <article class="svc c2 reveal"><div class="ph"><img src="img/emergency.webp" alt="" loading="lazy" width="600" height="375"><span class="tag">Call first</span></div><div class="body"><h3>Toothache or emergency</h3><p>In pain? Call and we'll do our best to see you quickly.</p><a class="book-this" href="#book" data-book="Toothache or emergency">Book this &rarr;</a></div></article>
+        <article class="svc c4 reveal"><div class="ph"><img src="img/kids.webp" alt="" loading="lazy" width="600" height="375"><span class="tag">Families</span></div><div class="body"><h3>Kids' visits</h3><p>Friendly visits for little ones. Book the whole family together.</p><a class="book-this" href="#book" data-book="Kids' visit">Book this &rarr;</a></div></article>
+        <article class="svc c5 reveal"><div class="ph"><img src="img/whitening.webp" alt="" loading="lazy" width="600" height="375"><span class="tag">Smile</span></div><div class="body"><h3>Whitening &amp; cosmetic</h3><p>Ask about brightening and improving your smile.</p><a class="book-this" href="#book" data-book="Whitening &amp; cosmetic">Book this &rarr;</a></div></article>
+        <article class="svc c6 reveal"><div class="ph"><img src="img/consultation.webp" alt="" loading="lazy" width="600" height="375"><span class="tag">Questions</span></div><div class="body"><h3>Consultations</h3><p>Not sure what you need? Let's talk it through.</p><a class="book-this" href="#book" data-book="Consultation">Book this &rarr;</a></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="how-sec" id="how">
+    <div class="wrap">
+      <div class="center reveal">
+        <span class="eyebrow lilac">How it works</span>
+        <h2>Booking made simple</h2>
+        <p>No account, no app, no waiting on hold.</p>
+      </div>
+      <div class="steps-row">
+        <div class="hstep reveal"><div class="num">1</div><h3>Send a request</h3><p>Choose your visit, the days and times that suit you, and how to reach you. It takes about a minute.</p></div>
+        <div class="hstep reveal"><div class="num">2</div><h3>I get back to you</h3><p>I'll call, text or email you, whichever you prefer, to find a time that works.</p></div>
+        <div class="hstep reveal"><div class="num">3</div><h3>See you at the clinic</h3><p>Come to Charisma Dental at 9000 Jane Street in Concord for your visit.</p></div>
+      </div>
     </div>
   </section>
 
   <section>
-    <div class="wrap">
-      <div class="center reveal">
-        <span class="eyebrow">How I can help</span>
-        <h2>Care for the whole family</h2>
-        <p>Tell me what you need and I'll find a time that works for you.</p>
+    <div class="wrap highlights">
+      <div class="hl-art reveal">
+        <img src="img/clinic.webp" alt="Bright, modern dental clinic" loading="lazy" width="700" height="560">
+        <div class="sticker">Open<br>7 days</div>
       </div>
-      <div class="cards">
-        <article class="card reveal"><img src="img/cleaning.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Cleanings &amp; check-ups</h3><p>Regular visits to keep your smile healthy.</p><a class="book-this" href="#book" data-book="Check-up &amp; cleaning">Book this &rarr;</a></div></article>
-        <article class="card reveal"><img src="img/family.webp" alt="" loading="lazy" width="600" height="450"><div><h3>New patients</h3><p>New to the clinic? I'll help you get started.</p><a class="book-this" href="#book" data-book="New patient exam">Book this &rarr;</a></div></article>
-        <article class="card reveal"><img src="img/kids.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Kids &amp; families</h3><p>Book the whole family at once.</p><a class="book-this" href="#book" data-book="Kids' visit">Book this &rarr;</a></div></article>
-        <article class="card reveal"><img src="img/consultation.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Consultations</h3><p>Questions about a treatment? Let's talk.</p><a class="book-this" href="#book" data-book="Consultation">Book this &rarr;</a></div></article>
+      <div class="reveal">
+        <span class="eyebrow sun">Why patients like it</span>
+        <h2>Dental care that fits your schedule</h2>
+        <p class="muted">Early mornings, evenings and weekends, so you don't have to miss work or school.</p>
+        <ul class="hl-list">
+          <li><b>Evenings</b><span>Monday to Friday until 9pm</span></li>
+          <li><b>Weekends</b><span>Saturday and Sunday, 8am – 6pm</span></li>
+          <li><b>Families</b><span>Book several people at once</span></li>
+          <li><b>Personal</b><span>Talk to me directly, not a call centre</span></li>
+        </ul>
       </div>
     </div>
   </section>
@@ -275,6 +466,7 @@
   <section class="book" id="book">
     <div class="wrap">
       <aside class="contact-card reveal">
+        <div class="avatar" aria-hidden="true">SP</div>
         <h3>Stephanie Pauls</h3>
         <p class="role">Dental Outreach Coordinator</p>
         <ul>
@@ -283,9 +475,9 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:StephanieCharismaDental@gmail.com">StephanieCharismaDental@gmail.com</a></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://www.google.com/maps/search/?api=1&query=9000+Jane+Street+Concord+ON+L4K+0M6" target="_blank" rel="noopener">9000 Jane Street, Concord, ON L4K 0M6</a></li>
         </ul>
-        <div class="hours">
-          <div><span>Monday – Friday</span><span>9am – 9pm</span></div>
-          <div><span>Saturday – Sunday</span><span>8am – 6pm</span></div>
+        <div class="hours" data-hours>
+          <div data-days="1-5"><span>Monday – Friday</span><span>9am – 9pm</span></div>
+          <div data-days="0,6"><span>Saturday – Sunday</span><span>8am – 6pm</span></div>
         </div>
         <ol class="how">
           <li><b>Send a request</b> in four quick steps.</li>
@@ -438,18 +630,61 @@
       </div>
     </div>
   </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="map reveal"><iframe title="Map to Charisma Dental, 9000 Jane Street, Concord" src="https://www.google.com/maps?q=9000+Jane+Street,+Concord,+ON+L4K+0M6&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+      <div class="visit-info reveal">
+        <span class="eyebrow sky" style="justify-self:start">Visit us</span>
+        <h2>Find Charisma Dental</h2>
+        <div class="info-card"><h3><i></i>Address</h3><p>9000 Jane Street, Concord, ON L4K 0M6</p><p style="margin-top:10px"><a href="https://www.google.com/maps/dir/?api=1&destination=9000+Jane+Street+Concord+ON+L4K+0M6" target="_blank" rel="noopener"><b>Get directions &rarr;</b></a></p></div>
+        <div class="info-card" style="--c: var(--coral)"><h3><i></i>Hours</h3>
+          <div class="hours" data-hours>
+            <div data-days="1-5"><span>Monday – Friday</span><span>9am – 9pm</span></div>
+            <div data-days="0,6"><span>Saturday – Sunday</span><span>8am – 6pm</span></div>
+          </div>
+        </div>
+        <div class="info-card" style="--c: var(--lilac)"><h3><i></i>Contact</h3><p><a href="tel:+16476296061"><b>647-629-6061</b></a> · <a href="sms:+16476296061">Text</a> · <a href="mailto:StephanieCharismaDental@gmail.com">Email</a></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" style="padding-top:0">
+    <div class="wrap">
+      <div class="center reveal">
+        <span class="eyebrow">Good to know</span>
+        <h2>Questions, answered</h2>
+      </div>
+      <div class="faq reveal">
+        <details><summary>Is my appointment confirmed when I send the form?</summary><p>Not yet. The form sends me a request. I'll contact you by call, text or email, whichever you chose, to confirm a time.</p></details>
+        <details><summary>I'm in pain. What should I do?</summary><p>Please call <a href="tel:+16476296061">647-629-6061</a> rather than using the form. Calling is the fastest way to get help.</p></details>
+        <details><summary>Can I book for my whole family?</summary><p>Yes. Choose how many people in the form and add their names and ages in the note, and I'll try to book you together.</p></details>
+        <details><summary>Do I need dental insurance?</summary><p>No. Let me know if you have insurance and who it's with, and I can answer your questions when I get back to you.</p></details>
+        <details><summary>What happens to my information?</summary><p>Your details are only used to contact you about your request. Please don't include private medical details in the form.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <div class="wrap">
+      <div class="cta-box reveal">
+        <div><h2>Ready when you are.</h2><p>Send a request now. It only takes a minute.</p></div>
+        <a class="btn btn-ghost" href="#book">Request an appointment &rarr;</a>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer>
   <div class="wrap">
-    <span>Stephanie Pauls · Charisma Dental, 9000 Jane Street, Concord</span>
+    <span>Stephanie Pauls · Dental Outreach Coordinator · Charisma Dental, 9000 Jane Street, Concord, ON</span>
     <span><a href="tel:+16476296061">647-629-6061</a></span>
   </div>
 </footer>
 
 <nav class="mbar" aria-label="Quick actions">
-  <a class="btn btn-ghost" href="tel:+16476296061">Call</a>
-  <a class="btn btn-ghost" href="sms:+16476296061">Text</a>
+  <a class="btn call" href="tel:+16476296061">Call</a>
+  <a class="btn text" href="sms:+16476296061">Text</a>
   <a class="btn btn-primary" href="#book">Book</a>
 </nav>
 
@@ -684,6 +919,41 @@
   show(0, false);
   if (q.get('sent')) { form.hidden = true; done.hidden = false; }
   else if (q.get('error')) status.textContent = "Sorry, that didn't go through. Please call or text 647-629-6061.";
+})();
+</script>
+<script>
+(() => {
+  // Live details that adapt to the visitor: greeting, "open now" and today's hours (clinic time, Toronto).
+  const HOURS = { 0: [8, 18], 1: [9, 21], 2: [9, 21], 3: [9, 21], 4: [9, 21], 5: [9, 21], 6: [8, 18] };
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Toronto', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23' }).formatToParts(new Date()).map(p => [p.type, p.value]));
+  const day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(parts.weekday);
+  const hour = Number(parts.hour) + Number(parts.minute) / 60;
+  const fmt = h => (h > 12 ? h - 12 : h) + (h >= 12 ? 'pm' : 'am');
+  if (day >= 0) {
+    const [open, close] = HOURS[day];
+    const el = document.getElementById('openStatus');
+    const isOpen = hour >= open && hour < close;
+    el.classList.toggle('closed', !isOpen);
+    el.querySelector('span').textContent = isOpen ? `Open now · until ${fmt(close)}` : hour < open ? `Opens today at ${fmt(open)}` : `Closed now · opens tomorrow at ${fmt(HOURS[(day + 1) % 7][0])}`;
+    document.querySelectorAll('[data-hours] [data-days]').forEach(row => {
+      const spec = row.dataset.days;
+      const match = spec.includes('-') ? (day >= +spec[0] && day <= +spec[2]) : spec.split(',').map(Number).includes(day);
+      row.classList.toggle('today', match);
+    });
+    const local = new Date().getHours();
+    document.getElementById('greeting').textContent = local < 12 ? 'Good morning!' : local < 18 ? 'Good afternoon!' : 'Good evening!';
+  }
+  // Header shadow and active menu link while scrolling
+  const header = document.getElementById('siteHeader');
+  const onScroll = () => header.classList.toggle('scrolled', scrollY > 10);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const links = [...document.querySelectorAll('nav.main a')];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach(a => { const s = document.querySelector(a.getAttribute('href')); s && io.observe(s); });
+  }
 })();
 </script>
 </body>
