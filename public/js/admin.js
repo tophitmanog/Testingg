@@ -71,7 +71,7 @@
     $('sUpcoming').textContent = stats.upcoming ?? 0;
     $('sTotal').textContent = stats.total ?? 0;
     $('refreshed').textContent = `Updated ${new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' })} · refreshes every minute`;
-    document.title = (stats.newCount ? `(${stats.newCount}) ` : '') + 'Bookings dashboard · Charisma Dental';
+    document.title = (stats.newCount ? `(${stats.newCount}) ` : '') + 'Bookings dashboard · Dental with Stephanie';
     renderList(bookings);
     if (!quiet) window.scrollTo({ top: 0 });
   }

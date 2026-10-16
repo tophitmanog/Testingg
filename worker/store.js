@@ -296,9 +296,9 @@ function shape(r) {
   };
 }
 
-// Short, readable booking reference like "CD-7K3M9Q" (no 0/O/1/I to avoid mix-ups).
+// Short, readable booking reference like "SP-7K3M9Q" (no 0/O/1/I to avoid mix-ups).
 function makeRef() {
   const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
   const bytes = crypto.getRandomValues(new Uint8Array(6));
-  return "CD-" + [...bytes].map((b) => chars[b % chars.length]).join("");
+  return "SP-" + [...bytes].map((b) => chars[b % chars.length]).join("");
 }

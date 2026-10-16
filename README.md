@@ -1,6 +1,6 @@
 <div align="center">
 
-# Charisma Dental · with Stephanie
+# Dental · with Stephanie
 
 **An online booking site where patients pick a real appointment time, plus a private dashboard to manage every booking.**
 
@@ -377,7 +377,7 @@ When Stephanie takes it over:
 - [ ] Add a real photo of Stephanie for the About section and the booking panel (the "SP" initials are a placeholder).
 - [ ] She creates a free Resend account with her own email. Update `RESEND_API_KEY` and `BOOKING_TO_EMAIL`.
 - [ ] Set a new `ADMIN_PASSWORD` just for her.
-- [ ] Confirm with the clinic that using the Charisma Dental name and address is fine.
+- [ ] Confirm with the clinic that a separate booking page for its address is fine.
 - [ ] Optional: a custom domain such as `bookwithstephanie.ca`, verified in Resend, then set `CONFIRM_PATIENTS=true`.
 
 ---
@@ -413,5 +413,5 @@ When Stephanie takes it over:
 
 <div align="center">
 <br>
-<sub>Charisma Dental · 9000 Jane Street, Concord, ON L4K 0M6 · 647-629-6061</sub>
+<sub>Dental · with Stephanie · 9000 Jane Street, Concord, ON L4K 0M6 · 647-629-6061</sub>
 </div>

@@ -133,7 +133,7 @@ test("POST /api/bookings stores the booking and emails Stephanie", async () => {
   const res = await handle(req("/api/bookings", { method: "POST", body: booking() }), env);
   assert.equal(res.status, 200);
   const out = await res.json();
-  assert.match(out.booking.ref, /^CD-[A-Z2-9]{6}$/);
+  assert.match(out.booking.ref, /^SP-[A-Z2-9]{6}$/);
   assert.equal(out.notified, true);
   assert.equal(store.listBookings({ view: "all" }, NOW).length, 1);
   assert.equal(sent.length, 1);
@@ -179,7 +179,7 @@ test("spam traps and other origins", async () => {
 test("admin API needs a valid session", async () => {
   assert.equal((await handle(req("/api/admin/bookings"), env)).status, 401);
   assert.equal((await handle(req("/api/admin/login", { method: "POST", body: { password: "nope" } }), env)).status, 401);
-  assert.equal((await handle(req("/api/admin/bookings", { cookie: "cd_admin=9999999999999.forged" }), env)).status, 401);
+  assert.equal((await handle(req("/api/admin/bookings", { cookie: "sp_admin=9999999999999.forged" }), env)).status, 401);
   const cookie = await adminCookie();
   assert.equal((await handle(req("/api/admin/bookings", { cookie }), env)).status, 200);
   env.ADMIN_PASSWORD = "changed";
@@ -219,7 +219,7 @@ test("admin settings round-trip", async () => {
 });
 
 test("emails escape what visitors type", () => {
-  const { html } = staffEmail({ ...booking({ name: "<b>Eve</b>" }), ref: "CD-TEST01" }, ORIGIN);
+  const { html } = staffEmail({ ...booking({ name: "<b>Eve</b>" }), ref: "SP-TEST01" }, ORIGIN);
   assert.ok(!html.includes("<b>Eve</b>"));
   assert.ok(html.includes("&lt;b&gt;Eve&lt;/b&gt;"));
 });

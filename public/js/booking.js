@@ -1,7 +1,7 @@
 // Booking flow: visit → date & time (live availability) → details → confirm → saved.
 (() => {
   const PHONE = '+16476296061';
-  const DRAFT = 'cd-booking-draft';
+  const DRAFT = 'sp-booking-draft';
   const form = document.getElementById('bookForm');
   if (!form) return;
   const $ = id => document.getElementById(id);
@@ -236,9 +236,9 @@
     const endMin = h * 60 + m + slotMinutes;
     const end = state.date.replace(/-/g, '') + 'T' + String(Math.floor(endMin / 60)).padStart(2, '0') + String(endMin % 60).padStart(2, '0') + '00';
     const title = `Dental visit: ${val('service')}`;
-    const where = 'Charisma Dental, 9000 Jane Street, Concord, ON L4K 0M6';
-    const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Charisma Dental//Booking//EN', 'BEGIN:VEVENT',
-      `UID:${b.ref}@charisma-booking`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`,
+    const where = '9000 Jane Street, Concord, ON L4K 0M6';
+    const ics = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Dental with Stephanie//Booking//EN', 'BEGIN:VEVENT',
+      `UID:${b.ref}@dental-with-stephanie`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').slice(0, 15)}Z`,
       `DTSTART;TZID=America/Toronto:${start}`, `DTEND;TZID=America/Toronto:${end}`,
       `SUMMARY:${title}`, `LOCATION:${where.replace(/,/g, '\\,')}`, `DESCRIPTION:Reference ${b.ref}. Questions? Call or text 647-629-6061.`,
       'END:VEVENT', 'END:VCALENDAR'].join('\r\n');

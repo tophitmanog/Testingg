@@ -11,7 +11,7 @@ const RESEND_URL = "https://api.resend.com/emails";
 const MAX_BODY_BYTES = 20_000;
 const MIN_FILL_MS = 4_000;
 const SESSION_DAYS = 14;
-const COOKIE = "cd_admin";
+const COOKIE = "sp_admin";
 
 const SECURITY_HEADERS = {
   "X-Content-Type-Options": "nosniff",
@@ -63,7 +63,7 @@ async function createBooking(request, env, url) {
   const started = Number(data._ts);
   if (data.website || (started && Date.now() - started < MIN_FILL_MS)) {
     console.log(JSON.stringify({ event: "booking_spam" }));
-    return json({ ok: true, booking: { ref: "CD-RECEIVED", date: data.date, time: data.time } });
+    return json({ ok: true, booking: { ref: "SP-RECEIVED", date: data.date, time: data.time } });
   }
 
   const result = await store(env).createBooking(data);
@@ -155,7 +155,7 @@ function cookie(value, maxAge, url) {
 
 // Sessions are signed with the password, so changing the password signs everyone out.
 async function sign(env, text) {
-  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode("cd-session:" + env.ADMIN_PASSWORD), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
+  const key = await crypto.subtle.importKey("raw", new TextEncoder().encode("sp-session:" + env.ADMIN_PASSWORD), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]);
   const mac = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(text));
   return btoa(String.fromCharCode(...new Uint8Array(mac))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
 }
@@ -235,7 +235,7 @@ function frame({ eyebrow, title, intro, body, accent = "#2f4a3a" }) {
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background:#f4ede3;padding:28px 12px"><tr><td align="center">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:580px;background:#fffdf9;border-radius:22px;overflow:hidden;border:1px solid #e7dccb">
 <tr><td style="padding:22px 28px;border-bottom:1px solid #efe6d8">
-<span style="font:600 13px/1 Georgia,'Times New Roman',serif;letter-spacing:.24em;color:#2f4a3a">CHARISMA DENTAL</span>
+<span style="font:600 13px/1 Georgia,'Times New Roman',serif;letter-spacing:.24em;color:#2f4a3a">DENTAL</span>
 <span style="font:13px/1 Arial,sans-serif;color:#8a7f70"> &nbsp;·&nbsp; with Stephanie</span></td></tr>
 <tr><td style="padding:28px 28px 8px">
 <div style="font:bold 11px/1 Arial,sans-serif;letter-spacing:.18em;text-transform:uppercase;color:${accent};margin-bottom:12px">${eyebrow}</div>
@@ -243,7 +243,7 @@ function frame({ eyebrow, title, intro, body, accent = "#2f4a3a" }) {
 <div style="font:15px/1.6 Arial,sans-serif;color:#5d5a52">${intro}</div></td></tr>
 <tr><td style="padding:12px 28px 28px">${body}</td></tr>
 <tr><td style="padding:18px 28px;background:#f7f1e8;font:12px/1.6 Arial,sans-serif;color:#8a7f70">
-Charisma Dental · 9000 Jane Street, Concord, ON L4K 0M6 · 647-629-6061</td></tr>
+Stephanie Pauls · 9000 Jane Street, Concord, ON L4K 0M6 · 647-629-6061</td></tr>
 </table></td></tr></table></body></html>`;
 }
 
@@ -296,6 +296,6 @@ export function patientEmail(b) {
       detailTable(rows) +
       `<div style="margin-top:18px">${button("tel:+16476296061", "Call 647-629-6061", "#2f4a3a")}${button("https://www.google.com/maps/dir/?api=1&destination=9000+Jane+Street+Concord+ON+L4K+0M6", "Directions", "#efe6d8", "#2f4a3a")}</div>`,
   });
-  const text = `Thank you, ${b.name}. I've saved ${when} for you and will contact you soon to confirm.\n\n${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\nStephanie · Charisma Dental · 647-629-6061`;
+  const text = `Thank you, ${b.name}. I've saved ${when} for you and will contact you soon to confirm.\n\n${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\nStephanie · 647-629-6061`;
   return { subject: `Your visit request: ${when}`, text, html };
 }
