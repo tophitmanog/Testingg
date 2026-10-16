@@ -2,9 +2,9 @@
   "name": "booking-page",
   "version": "1.0.0",
   "private": true,
-  "description": "One-page appointment request site with a Cloudflare Worker that emails each request",
+  "description": "Appointment booking site with time slots, a booking database and a staff dashboard, on Cloudflare Workers",
   "scripts": {
-    "test": "node --test worker/index.test.mjs",
+    "test": "node --disable-warning=ExperimentalWarning --test worker/index.test.mjs",
     "dev": "npx wrangler dev",
     "deploy": "npx wrangler deploy"
   },
