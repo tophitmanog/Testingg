@@ -318,6 +318,11 @@
         method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
       });
       const data = await res.json().catch(() => ({}));
+      if (/activat/i.test(data.message || '')) {
+        btn.disabled = false; btn.textContent = 'Send request';
+        status.textContent = 'Almost ready: this form needs a one-time activation. Check the inbox (and spam) for an "Activate Form" email, click it, then send again.';
+        return;
+      }
       if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Send failed');
       form.innerHTML = '<div class="done"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h2 style="font-size:1.6rem">Thank you!</h2><p style="color:var(--muted)">Your request has been sent. I\'ll be in touch soon to confirm your appointment.</p><p style="color:var(--muted)">Need me sooner? Call or text <a href="tel:+16476296061">647-629-6061</a>.</p></div>';
       form.scrollIntoView({ block: 'center' });
