@@ -1,0 +1,17 @@
+{
+  "services": [
+    "Check-up & cleaning",
+    "New patient exam",
+    "Toothache or emergency",
+    "Kids' visit",
+    "Whitening & cosmetic",
+    "Consultation",
+    "Something else"
+  ],
+  "patient": ["New patient", "Returning patient"],
+  "days": ["Any day", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+  "times": ["Any time", "Morning (9–11am)", "Midday (11am–2pm)", "Afternoon (2–6pm)", "Evening (6–9pm)"],
+  "people": ["Just me", "2 people", "3 people", "4 or more"],
+  "insurance": ["Yes", "No", "Not sure"],
+  "contactBy": ["Call", "Text", "Email"]
+}

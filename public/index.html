@@ -134,6 +134,87 @@
     .reveal { opacity: 1; transform: none; transition: none; }
     .btn, .card { transition: none; }
   }
+
+  /* booking card */
+  .how { margin: 22px 0 0; padding: 18px 0 0 0; border-top: 1px solid rgba(255,255,255,.15); list-style: none; counter-reset: how; display: grid; gap: 10px; font-size: .95rem; }
+  .how li { counter-increment: how; display: flex; gap: 10px; align-items: baseline; }
+  .how li::before { content: counter(how); flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--teal); color: var(--ink); font-weight: 800; font-size: .8rem; display: grid; place-items: center; }
+  .how b { color: #fff; }
+  .booker { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 30px 60px -40px rgba(47,58,62,.5); }
+  .booker-head h2 { font-size: 1.6rem; }
+  .steps { list-style: none; padding: 0; margin: 14px 0 10px; display: flex; justify-content: space-between; gap: 6px; }
+  .steps li { display: flex; align-items: center; gap: 6px; font-weight: 700; font-size: .85rem; color: var(--muted); }
+  .steps span { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--line); font-size: .8rem; background: #fff; transition: background .2s, border-color .2s, color .2s; }
+  .steps li.on { color: var(--ink); }
+  .steps li.on span { border-color: var(--teal-d); background: var(--teal-d); color: #fff; }
+  .steps li.done span { border-color: var(--teal); background: var(--teal-50); color: var(--teal-d); }
+  .bar { height: 6px; border-radius: 99px; background: var(--teal-50); overflow: hidden; margin-bottom: 20px; }
+  .bar i { display: block; height: 100%; width: 25%; border-radius: inherit; background: linear-gradient(90deg, var(--teal), var(--teal-d)); transition: width .35s ease; }
+  .step { border: 0; padding: 0; margin: 0 0 8px; min-width: 0; }
+  .step-title { font-size: 1.2rem; font-weight: 800; margin-bottom: 14px; padding: 0; }
+  .js .step { display: none; }
+  .js .step.active { display: block; animation: slidein .35s ease; }
+  @keyframes slidein { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
+  .tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+  .tile { position: relative; display: grid; gap: 8px; justify-items: start; padding: 14px; border: 2px solid var(--line); border-radius: 16px; cursor: pointer; font-weight: 700; font-size: .95rem; line-height: 1.25; transition: border-color .15s, background .15s, transform .15s; }
+  .tile:hover { transform: translateY(-2px); border-color: var(--teal-100); }
+  .tile input { position: absolute; opacity: 0; pointer-events: none; }
+  .tile svg { width: 26px; height: 26px; fill: none; stroke: var(--teal-d); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .tile.urgent svg { stroke: #d0543f; }
+  .tile:has(input:checked) { border-color: var(--teal-d); background: var(--teal-50); }
+  .tile.urgent:has(input:checked) { border-color: #d0543f; background: #fff1ee; }
+  .tile:has(input:focus-visible) { outline: 3px solid var(--sun); outline-offset: 2px; }
+  .alert { margin: 14px 0; padding: 12px 14px; border-radius: 14px; background: #fff1ee; border: 1px solid #f6c4bb; font-size: .95rem; }
+  .alert a { font-weight: 800; color: #b23a26; }
+  .label { font-weight: 700; font-size: .92rem; }
+  label small, .label small { font-weight: 600; color: var(--muted); }
+  .chips small { color: var(--muted); font-weight: 600; font-size: .8rem; }
+  .field.narrow { max-width: 260px; }
+  .hint { font-size: .88rem; color: #8a5a00; background: #fff6dd; border-radius: 10px; padding: 8px 12px; margin: 8px 0 0; }
+  .summary { display: grid; grid-template-columns: auto 1fr auto; gap: 0; margin: 0 0 16px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .summary dt, .summary dd { margin: 0; padding: 10px 12px; border-bottom: 1px solid var(--line); font-size: .95rem; }
+  .summary dt { color: var(--muted); font-weight: 700; }
+  .summary dd { font-weight: 700; word-break: break-word; }
+  .summary dd.edit { padding: 6px 10px; display: flex; align-items: center; }
+  .summary dd.edit button { font: inherit; font-size: .82rem; font-weight: 800; color: var(--teal-d); background: var(--teal-50); border: 0; border-radius: 99px; padding: 4px 10px; cursor: pointer; }
+  .summary > :nth-last-child(-n+3) { border-bottom: 0; }
+  .nav { display: flex; gap: 10px; justify-content: space-between; margin-top: 6px; }
+  .nav .btn { flex: 1; }
+  .nav [data-back], .nav [data-next] { display: none; }
+  .js .nav [data-next] { display: inline-flex; }
+  .js .nav [type=submit] { display: none; }
+  .js .booker.first .nav [data-back] { display: none; }
+  .js .booker:not(.first) .nav [data-back] { display: inline-flex; flex: 0 0 auto; }
+  .js .booker.last .nav [data-next] { display: none; }
+  .js .booker.last .nav [type=submit] { display: inline-flex; }
+  .err { color: #c0392b; font-size: .85rem; font-weight: 700; margin: 4px 0 0; display: none; }
+  .err.show { display: block; }
+  .bad input:not([type=radio]):not([type=checkbox]), .bad select { border-color: #e58c80; }
+  .fallback { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 12px; }
+  .fallback .btn { flex: 1; }
+  .booker.done { text-align: center; padding: 40px 24px; }
+  .booker.done .tick { width: 76px; height: 76px; border-radius: 50%; background: var(--teal-50); color: var(--teal-d); display: grid; place-items: center; margin: 0 auto 16px; animation: pop .5s cubic-bezier(.2,1.6,.4,1); }
+  .booker.done .tick svg { width: 38px; height: 38px; }
+  @keyframes pop { from { transform: scale(.4); opacity: 0; } to { transform: none; opacity: 1; } }
+  .booker.done p { color: var(--muted); }
+  .muted { color: var(--muted); }
+  .card .book-this { display: inline-block; margin-top: 10px; font-weight: 800; font-size: .9rem; text-decoration: none; }
+  @media (max-width: 560px) {
+    .booker { padding: 20px; }
+    .steps li { font-size: 0; gap: 0; }
+    .steps span { font-size: .8rem; }
+    .tiles { grid-template-columns: 1fr 1fr; }
+    .summary { grid-template-columns: 1fr auto; }
+    .summary dt { grid-column: 1 / -1; padding-bottom: 0; border-bottom: 0; font-size: .8rem; }
+    .summary > :nth-last-child(-n+3) { border-bottom: 1px solid var(--line); }
+    .summary > :nth-last-child(-n+2) { border-bottom: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js .step.active, .booker.done .tick { animation: none; }
+    .bar i, .tile { transition: none; }
+  }
+  .booker .btn, .nav .btn { width: auto; }
+  [hidden] { display: none !important; }
 </style>
 </head>
 <body>
@@ -183,10 +264,10 @@
         <p>Tell me what you need and I'll find a time that works for you.</p>
       </div>
       <div class="cards">
-        <article class="card reveal"><img src="img/cleaning.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Cleanings &amp; check-ups</h3><p>Regular visits to keep your smile healthy.</p></div></article>
-        <article class="card reveal"><img src="img/family.webp" alt="" loading="lazy" width="600" height="450"><div><h3>New patients</h3><p>New to the clinic? I'll help you get started.</p></div></article>
-        <article class="card reveal"><img src="img/kids.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Kids &amp; families</h3><p>Book the whole family at once.</p></div></article>
-        <article class="card reveal"><img src="img/consultation.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Consultations</h3><p>Questions about a treatment? Let's talk.</p></div></article>
+        <article class="card reveal"><img src="img/cleaning.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Cleanings &amp; check-ups</h3><p>Regular visits to keep your smile healthy.</p><a class="book-this" href="#book" data-book="Check-up &amp; cleaning">Book this &rarr;</a></div></article>
+        <article class="card reveal"><img src="img/family.webp" alt="" loading="lazy" width="600" height="450"><div><h3>New patients</h3><p>New to the clinic? I'll help you get started.</p><a class="book-this" href="#book" data-book="New patient exam">Book this &rarr;</a></div></article>
+        <article class="card reveal"><img src="img/kids.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Kids &amp; families</h3><p>Book the whole family at once.</p><a class="book-this" href="#book" data-book="Kids' visit">Book this &rarr;</a></div></article>
+        <article class="card reveal"><img src="img/consultation.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Consultations</h3><p>Questions about a treatment? Let's talk.</p><a class="book-this" href="#book" data-book="Consultation">Book this &rarr;</a></div></article>
       </div>
     </div>
   </section>
@@ -206,62 +287,154 @@
           <div><span>Monday – Friday</span><span>9am – 9pm</span></div>
           <div><span>Saturday – Sunday</span><span>8am – 6pm</span></div>
         </div>
+        <ol class="how">
+          <li><b>Send a request</b> in four quick steps.</li>
+          <li><b>I'll reach out</b> the way you prefer to find a time.</li>
+          <li><b>You're booked.</b> See you at the clinic!</li>
+        </ol>
       </aside>
 
       <div class="reveal">
-        <form id="bookingForm" action="https://formsubmit.co/punisherog7@gmail.com" method="POST" novalidate>
-          <h2 style="font-size:1.6rem">Request an appointment</h2>
-          <p style="color:var(--muted);margin:0 0 18px">Fill this in and I'll contact you to confirm a time.</p>
-
-          <input type="hidden" name="_subject" value="TEST - New appointment request from your website">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-          <div class="grid2">
-            <div class="field"><label for="name">Full name <span class="req">*</span></label><input id="name" name="Name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
-            <div class="field"><label for="phone">Phone <span class="req">*</span></label><input id="phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+()\-\s.]{7,}"><span class="err">Please enter a phone number.</span></div>
+        <form id="bookingForm" class="booker" action="/api/book" method="POST" novalidate>
+          <div class="booker-head">
+            <h2>Request an appointment</h2>
+            <ol class="steps" aria-label="Booking steps">
+              <li class="on"><span>1</span>Visit</li>
+              <li><span>2</span>Time</li>
+              <li><span>3</span>You</li>
+              <li><span>4</span>Review</li>
+            </ol>
+            <div class="bar" aria-hidden="true"><i></i></div>
           </div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><span class="err">Please check your email address.</span></div>
-          <div class="grid2">
-            <div class="field"><label for="reason">Reason for visit <span class="req">*</span></label>
-              <select id="reason" name="Reason" required>
-                <option value="">Choose one</option>
-                <option>New patient appointment</option>
-                <option>Cleaning &amp; check-up</option>
-                <option>Toothache or emergency</option>
-                <option>Kids / family appointment</option>
-                <option>Consultation</option>
-                <option>Other</option>
-              </select><span class="err">Please choose a reason.</span></div>
-            <div class="field"><label for="date">Preferred date</label><input id="date" name="Preferred date" type="date"></div>
-          </div>
-          <fieldset>
-            <legend>Best time</legend>
-            <div class="chips">
-              <label><input type="radio" name="Best time" value="Morning"> Morning</label>
-              <label><input type="radio" name="Best time" value="Afternoon"> Afternoon</label>
-              <label><input type="radio" name="Best time" value="Evening"> Evening</label>
-              <label><input type="radio" name="Best time" value="Any time" checked> Any time</label>
+
+          <input type="hidden" name="_ts" value="">
+          <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <!-- Step 1 -->
+          <fieldset class="step" data-step="1">
+            <legend class="step-title">What brings you in?</legend>
+            <div class="tiles" data-field="Service">
+              <label class="tile"><input type="radio" name="Service" value="Check-up &amp; cleaning" required><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3c-2.5 0-4 2-4 4.5 0 3 1.5 5 2 8s1 5.5 2.5 5.5S9.5 17 12 17s2.5 4 4.5 4 2-2.5 2.5-5.5 2-5 2-8C21 5 19.5 3 17 3c-2 0-3 1-5 1S9 3 7 3z"/></svg><span>Check-up &amp; cleaning</span></label>
+              <label class="tile"><input type="radio" name="Service" value="New patient exam"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M19 3v4M17 5h4"/></svg><span>New patient exam</span></label>
+              <label class="tile urgent"><input type="radio" name="Service" value="Toothache or emergency"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3z"/><path d="M12 10v4M12 17h.01"/></svg><span>Toothache or emergency</span></label>
+              <label class="tile"><input type="radio" name="Service" value="Kids' visit"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 14a4 4 0 0 0 7 0M9 9.5h.01M15 9.5h.01"/></svg><span>Kids' visit</span></label>
+              <label class="tile"><input type="radio" name="Service" value="Whitening &amp; cosmetic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg><span>Whitening &amp; cosmetic</span></label>
+              <label class="tile"><input type="radio" name="Service" value="Consultation"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Consultation</span></label>
+              <label class="tile"><input type="radio" name="Service" value="Something else"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg><span>Something else</span></label>
+            </div>
+            <p class="err" data-for="Service">Please choose what you'd like to book.</p>
+            <div class="alert" id="urgentNote" hidden>
+              <strong>In pain right now?</strong> Calling is fastest. <a href="tel:+16476296061">Call 647-629-6061</a> and we'll try to see you the same day.
+            </div>
+            <div class="field">
+              <span class="label">Have you been to Charisma Dental before?</span>
+              <div class="chips">
+                <label><input type="radio" name="Patient" value="New patient" checked> I'm new</label>
+                <label><input type="radio" name="Patient" value="Returning patient"> I've been before</label>
+              </div>
             </div>
           </fieldset>
-          <fieldset>
-            <legend>How should I contact you?</legend>
-            <div class="chips">
-              <label><input type="radio" name="Contact by" value="Call" checked> Call</label>
-              <label><input type="radio" name="Contact by" value="Text"> Text</label>
-              <label><input type="radio" name="Contact by" value="Email"> Email</label>
+
+          <!-- Step 2 -->
+          <fieldset class="step" data-step="2">
+            <legend class="step-title">When suits you?</legend>
+            <div class="field">
+              <span class="label">Days that work <small>(pick as many as you like)</small></span>
+              <div class="chips days">
+                <label><input type="checkbox" name="Preferred days" value="Any day" checked> Any day</label>
+                <label><input type="checkbox" name="Preferred days" value="Mon"> Mon</label>
+                <label><input type="checkbox" name="Preferred days" value="Tue"> Tue</label>
+                <label><input type="checkbox" name="Preferred days" value="Wed"> Wed</label>
+                <label><input type="checkbox" name="Preferred days" value="Thu"> Thu</label>
+                <label><input type="checkbox" name="Preferred days" value="Fri"> Fri</label>
+                <label><input type="checkbox" name="Preferred days" value="Sat"> Sat</label>
+                <label><input type="checkbox" name="Preferred days" value="Sun"> Sun</label>
+              </div>
+            </div>
+            <div class="field">
+              <span class="label">Times that work</span>
+              <div class="chips times">
+                <label><input type="checkbox" name="Preferred times" value="Any time" checked> Any time</label>
+                <label><input type="checkbox" name="Preferred times" value="Morning (9–11am)"> Morning <small>9–11am</small></label>
+                <label><input type="checkbox" name="Preferred times" value="Midday (11am–2pm)"> Midday <small>11am–2pm</small></label>
+                <label><input type="checkbox" name="Preferred times" value="Afternoon (2–6pm)"> Afternoon <small>2–6pm</small></label>
+                <label><input type="checkbox" name="Preferred times" value="Evening (6–9pm)"> Evening <small>6–9pm</small></label>
+              </div>
+              <p class="hint" id="eveningNote" hidden>Heads up: evenings are weekdays only. Weekend hours are 8am – 6pm.</p>
+            </div>
+            <div class="field narrow">
+              <label for="date">Specific date in mind? <small>(optional)</small></label>
+              <input id="date" name="Preferred date" type="date">
             </div>
           </fieldset>
-          <div class="field"><label for="msg">Anything else?</label><textarea id="msg" name="Message" placeholder="e.g. number of people, insurance, questions"></textarea></div>
-          <div class="field" style="margin:0">
-            <label class="consent"><input type="checkbox" id="consent" name="Consent" value="Yes" required> I agree to be contacted about my appointment request. Please don't include private medical details here.</label>
-            <span class="err" style="margin:-12px 0 12px">Please tick the box so I can contact you.</span>
-          </div>
-          <button class="btn btn-primary" type="submit">Send request</button>
+
+          <!-- Step 3 -->
+          <fieldset class="step" data-step="3">
+            <legend class="step-title">A little about you</legend>
+            <div class="grid2">
+              <div class="field"><label for="name">Full name <span class="req">*</span></label><input id="name" name="Name" autocomplete="name" maxlength="100" required><p class="err" data-for="Name">Please enter your name.</p></div>
+              <div class="field"><label for="phone">Phone <span class="req">*</span></label><input id="phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" maxlength="30" required><p class="err" data-for="Phone">Please enter a valid phone number.</p></div>
+            </div>
+            <div class="field"><label for="email">Email <small>(optional)</small></label><input id="email" name="Email" type="email" autocomplete="email" maxlength="254"><p class="err" data-for="Email">Please check your email address.</p></div>
+            <div class="field">
+              <span class="label">How should I reach you?</span>
+              <div class="chips">
+                <label><input type="radio" name="Contact by" value="Call" checked> Call</label>
+                <label><input type="radio" name="Contact by" value="Text"> Text</label>
+                <label><input type="radio" name="Contact by" value="Email"> Email</label>
+              </div>
+            </div>
+            <div class="grid2">
+              <div class="field">
+                <label for="people">How many people?</label>
+                <select id="people" name="People">
+                  <option>Just me</option><option>2 people</option><option>3 people</option><option>4 or more</option>
+                </select>
+              </div>
+              <div class="field">
+                <span class="label">Dental insurance?</span>
+                <div class="chips">
+                  <label><input type="radio" name="Insurance" value="Yes"> Yes</label>
+                  <label><input type="radio" name="Insurance" value="No"> No</label>
+                  <label><input type="radio" name="Insurance" value="Not sure" checked> Not sure</label>
+                </div>
+              </div>
+            </div>
+            <div class="field" id="providerField" hidden><label for="provider">Insurance provider <small>(optional)</small></label><input id="provider" name="Insurance provider" maxlength="80" placeholder="e.g. Sun Life, Manulife, CDCP"></div>
+            <div class="field"><label for="msg">Anything I should know? <small>(optional)</small></label><textarea id="msg" name="Message" maxlength="2000" placeholder="e.g. names and ages for a family booking, or questions"></textarea></div>
+          </fieldset>
+
+          <!-- Step 4 -->
+          <fieldset class="step" data-step="4">
+            <legend class="step-title">Check and send</legend>
+            <dl class="summary" id="summary"></dl>
+            <div class="field">
+              <label class="consent"><input type="checkbox" name="Consent" value="yes" required> I agree to be contacted about this request. I won't include private medical details here.</label>
+              <p class="err" data-for="Consent">Please tick the box so I can contact you.</p>
+            </div>
+          </fieldset>
+
           <p class="status" role="status" aria-live="polite"></p>
+          <div class="fallback" id="fallback" hidden>
+            <a class="btn btn-ghost" id="smsFallback" href="sms:+16476296061">Text my request instead</a>
+            <a class="btn btn-ghost" href="tel:+16476296061">Call 647-629-6061</a>
+          </div>
+
+          <div class="nav">
+            <button class="btn btn-ghost" type="button" data-back>Back</button>
+            <button class="btn btn-primary" type="button" data-next>Next</button>
+            <button class="btn btn-primary" type="submit">Send request</button>
+          </div>
           <p class="note">This is a request, not a confirmed booking. I'll get back to you to confirm.</p>
         </form>
+
+        <div class="booker done" id="done" hidden tabindex="-1">
+          <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h2>Request sent!</h2>
+          <p id="doneMsg">Thanks! I'll be in touch soon to confirm your appointment.</p>
+          <p class="muted">Need me sooner? Call or text <a href="tel:+16476296061">647-629-6061</a>.</p>
+          <button class="btn btn-ghost" type="button" id="again">Book for someone else</button>
+        </div>
       </div>
     </div>
   </section>
@@ -282,6 +455,12 @@
 
 <script>
 (() => {
+  // Backup email service, used only if the page's own email sender (/api/book) isn't available.
+  const BACKUP_EMAIL = 'punisherog7@gmail.com';
+  const PHONE = '+16476296061';
+  const DRAFT_KEY = 'booking-draft';
+  document.documentElement.classList.add('js');
+
   // Reveal on scroll
   const els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -289,48 +468,222 @@
     els.forEach(el => io.observe(el));
   } else els.forEach(el => el.classList.add('in'));
 
-  // No past dates
-  const d = document.getElementById('date');
-  const t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset());
-  d.min = t.toISOString().slice(0, 10);
-
-  // Booking form: validate, then send through FormSubmit's AJAX endpoint
   const form = document.getElementById('bookingForm');
+  const done = document.getElementById('done');
+  const steps = [...form.querySelectorAll('.step')];
+  const pills = [...form.querySelectorAll('.steps li')];
+  const bar = form.querySelector('.bar i');
   const status = form.querySelector('.status');
-  const btn = form.querySelector('button[type=submit]');
-  const check = el => {
-    const ok = el.type === 'checkbox' ? el.checked : el.checkValidity() && (!el.required || el.value.trim() !== '');
-    el.closest('.field').classList.toggle('invalid', !ok);
-    return ok;
+  const fallback = document.getElementById('fallback');
+  const submitBtn = form.querySelector('[type=submit]');
+  const $ = name => form.elements[name];
+  let current = 0;
+
+  form._ts.value = Date.now();
+  const today = new Date(); today.setMinutes(today.getMinutes() - today.getTimezoneOffset());
+  $('Preferred date').min = today.toISOString().slice(0, 10);
+
+  // ---- steps
+  function show(i, focus = true) {
+    current = i;
+    steps.forEach((s, n) => s.classList.toggle('active', n === i));
+    pills.forEach((p, n) => { p.classList.toggle('on', n === i); p.classList.toggle('done', n < i); });
+    bar.style.width = ((i + 1) / steps.length * 100) + '%';
+    form.classList.toggle('first', i === 0);
+    form.classList.toggle('last', i === steps.length - 1);
+    if (i === steps.length - 1) renderSummary();
+    status.textContent = '';
+    if (focus) steps[i].querySelector('legend').scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+  }
+  form.querySelector('[data-next]').addEventListener('click', () => { if (checkStep(current)) show(current + 1); });
+  form.querySelector('[data-back]').addEventListener('click', () => show(current - 1));
+
+  // ---- validation (mirrors the server rules)
+  const rules = {
+    Service: () => !!form.querySelector('[name=Service]:checked'),
+    Name: () => $('Name').value.trim().length >= 2,
+    Phone: () => { const v = $('Phone').value.trim(), d = v.replace(/\D/g, ''); return d.length >= 7 && d.length <= 15 && /^[\d\s()+.\-x]+$/i.test(v); },
+    Email: () => { const v = $('Email').value.trim(); if (!v) return contactBy() !== 'Email'; return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); },
+    Consent: () => $('Consent').checked,
   };
-  form.querySelectorAll('input, select').forEach(el => {
-    if (el.closest('.field')) el.addEventListener('change', () => check(el));
+  const contactBy = () => (form.querySelector('[name="Contact by"]:checked') || {}).value;
+  function setError(name, msg) {
+    const err = form.querySelector(`.err[data-for="${name}"]`);
+    if (!err) return;
+    if (msg) err.textContent = msg;
+    err.classList.toggle('show', !!msg);
+    err.closest('.field, .step').classList.toggle('bad', !!msg);
+  }
+  function checkStep(i) {
+    const names = Object.keys(rules).filter(n => steps[i].querySelector(`.err[data-for="${n}"]`));
+    let first = null;
+    names.forEach(n => {
+      const ok = rules[n]();
+      const msg = n === 'Email' && contactBy() === 'Email' && !$('Email').value.trim() ? 'Add an email so I can reply by email.' : null;
+      setError(n, ok ? '' : (msg || form.querySelector(`.err[data-for="${n}"]`).dataset.msg || form.querySelector(`.err[data-for="${n}"]`).textContent));
+      if (!ok && !first) first = n;
+    });
+    if (first) { const el = form.querySelector(`[name="${first}"]`); el && el.focus(); }
+    return !first;
+  }
+  form.querySelectorAll('.err').forEach(e => { e.dataset.msg = e.textContent; });
+  form.addEventListener('change', e => { const n = e.target.name; if (rules[n] && rules[n]()) setError(n, ''); });
+
+  // ---- smart extras
+  function exclusive(name, anyValue) {
+    const boxes = [...form.querySelectorAll(`[name="${name}"]`)];
+    boxes.forEach(b => b.addEventListener('change', () => {
+      const any = boxes.find(x => x.value === anyValue);
+      if (b === any && b.checked) boxes.forEach(x => { if (x !== any) x.checked = false; });
+      else if (b.checked) any.checked = false;
+      if (!boxes.some(x => x.checked)) any.checked = true;
+      eveningHint();
+    }));
+  }
+  exclusive('Preferred days', 'Any day');
+  exclusive('Preferred times', 'Any time');
+  function eveningHint() {
+    const days = [...form.querySelectorAll('[name="Preferred days"]:checked')].map(b => b.value);
+    const evening = form.querySelector('[name="Preferred times"][value^="Evening"]').checked;
+    document.getElementById('eveningNote').hidden = !(evening && days.length && days.every(d => d === 'Sat' || d === 'Sun'));
+  }
+  form.addEventListener('change', e => {
+    if (e.target.name === 'Service') { document.getElementById('urgentNote').hidden = e.target.value !== 'Toothache or emergency'; setError('Service', ''); }
+    if (e.target.name === 'Insurance') document.getElementById('providerField').hidden = e.target.value !== 'Yes';
   });
+  // "Book this" links on the service cards preselect the visit type
+  document.querySelectorAll('[data-book]').forEach(a => a.addEventListener('click', () => {
+    const r = form.querySelector(`[name=Service][value="${a.dataset.book}"]`);
+    if (r) { r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })); }
+    show(0, false);
+  }));
+
+  // ---- review
+  function entries() {
+    const fd = new FormData(form), out = {};
+    for (const [k, v] of fd) if (!k.startsWith('_') && k !== 'website') out[k] = out[k] ? out[k] + ', ' + v : v;
+    return out;
+  }
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  function renderSummary() {
+    const e = entries();
+    const rows = [
+      ['Visit', `${e.Service || '—'} · ${e.Patient}`, 0],
+      ['When', `${e['Preferred days']} · ${e['Preferred times']}${e['Preferred date'] ? ' · ' + e['Preferred date'] : ''}`, 1],
+      ['Name', e.Name, 2],
+      ['Reach me', `${e['Contact by']} · ${e.Phone}${e.Email ? ' · ' + e.Email : ''}`, 2],
+      ['Details', `${e.People} · Insurance: ${e.Insurance}${e['Insurance provider'] ? ' (' + e['Insurance provider'] + ')' : ''}`, 2],
+      ...(e.Message ? [['Note', e.Message, 2]] : []),
+    ];
+    document.getElementById('summary').innerHTML = rows.map(([k, v, s]) =>
+      `<dt>${k}</dt><dd>${esc(v)}</dd><dd class="edit"><button type="button" data-goto="${s}">Edit</button></dd>`).join('');
+  }
+  document.getElementById('summary').addEventListener('click', e => { const b = e.target.closest('[data-goto]'); if (b) show(+b.dataset.goto); });
+
+  // ---- draft autosave (so nothing is lost on refresh)
+  const store = { get() { try { return JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null'); } catch { return null; } },
+                  set(v) { try { localStorage.setItem(DRAFT_KEY, JSON.stringify(v)); } catch {} },
+                  clear() { try { localStorage.removeItem(DRAFT_KEY); } catch {} } };
+  function saveDraft() {
+    const d = {};
+    for (const el of form.elements) {
+      if (!el.name || el.name.startsWith('_') || el.name === 'website' || el.name === 'Consent') continue;
+      if (el.type === 'radio' || el.type === 'checkbox') { if (el.checked) (d[el.name] ||= []).push(el.value); }
+      else if (el.value) d[el.name] = [el.value];
+    }
+    store.set(d);
+  }
+  function loadDraft() {
+    const d = store.get(); if (!d) return;
+    for (const el of form.elements) {
+      if (!el.name || !(el.name in d)) continue;
+      if (el.type === 'radio' || el.type === 'checkbox') el.checked = d[el.name].includes(el.value);
+      else el.value = d[el.name][0];
+    }
+    ['Service', 'Insurance'].forEach(n => { const c = form.querySelector(`[name="${n}"]:checked`); c && c.dispatchEvent(new Event('change', { bubbles: true })); });
+    eveningHint();
+  }
+  loadDraft();
+  form.addEventListener('input', saveDraft);
+  form.addEventListener('change', saveDraft);
+
+  // ---- sending: own email sender first, then the backup service, then text/call
+  async function sendPrimary(fd) {
+    const res = await fetch('/api/book', { method: 'POST', headers: { Accept: 'application/json' }, body: fd });
+    const data = await res.json().catch(() => ({}));
+    return { status: res.status, data };
+  }
+  async function sendBackup() {
+    const e = entries();
+    const fd = new FormData();
+    fd.append('_subject', `${e.Service === 'Toothache or emergency' ? 'URGENT: ' : ''}Booking request: ${e.Name} (${e.Service})`);
+    fd.append('_template', 'table');
+    fd.append('_captcha', 'false');
+    if (e.Email) fd.append('_replyto', e.Email);
+    Object.entries(e).forEach(([k, v]) => { if (k !== 'Consent') fd.append(k, v); });
+    const res = await fetch(`https://formsubmit.co/ajax/${BACKUP_EMAIL}`, { method: 'POST', headers: { Accept: 'application/json' }, body: fd });
+    const data = await res.json().catch(() => ({}));
+    if (/activat/i.test(data.message || '')) return 'activate';
+    return res.ok && String(data.success) === 'true' ? 'ok' : 'fail';
+  }
+  function smsBody() {
+    const e = entries();
+    return `Hi Stephanie, I'd like to book: ${e.Service} (${e.Patient}). ${e['Preferred days']}, ${e['Preferred times']}${e['Preferred date'] ? ', ' + e['Preferred date'] : ''}. ${e.Name}, ${e.Phone}.`;
+  }
+  function finish() {
+    const name = ($('Name').value.trim().split(/\s+/)[0]) || '';
+    const how = { Call: 'call you', Text: 'text you', Email: 'email you' }[contactBy()] || 'contact you';
+    document.getElementById('doneMsg').textContent = `Thanks${name ? ', ' + name : ''}! I'll ${how} soon to confirm a time.`;
+    store.clear();
+    form.hidden = true; done.hidden = false; done.focus();
+    done.scrollIntoView({ block: 'center', behavior: 'smooth' });
+  }
+  function busy(on) { submitBtn.disabled = on; submitBtn.textContent = on ? 'Sending…' : 'Send request'; }
+
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    const fields = [...form.querySelectorAll('.field input, .field select')];
-    const bad = fields.filter(el => !check(el));
-    if (bad.length) { bad[0].focus(); status.textContent = 'Please fix the highlighted fields.'; return; }
-    if (form._honey.value) return;
-    btn.disabled = true; btn.textContent = 'Sending…'; status.textContent = '';
+    for (let i = 0; i < steps.length; i++) if (!checkStep(i)) { show(i); checkStep(i); return; }
+    if (form.website.value) return finish();
+    busy(true); status.textContent = ''; fallback.hidden = true;
     try {
-      const res = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
-        method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
-      });
-      const data = await res.json().catch(() => ({}));
-      if (/activat/i.test(data.message || '')) {
-        btn.disabled = false; btn.textContent = 'Send request';
-        status.textContent = 'Almost ready: this form needs a one-time activation. Check the inbox (and spam) for an "Activate Form" email, click it, then send again.';
-        return;
+      const { status: code, data } = await sendPrimary(new FormData(form));
+      if (code === 200 && data.ok) return finish();
+      if (code === 422 && data.fields) {
+        const names = Object.keys(data.fields);
+        names.forEach(n => setError(n, data.fields[n]));
+        const i = steps.findIndex(s => names.some(n => s.querySelector(`.err[data-for="${n}"]`)));
+        if (i >= 0 && i !== current) { show(i); names.forEach(n => setError(n, data.fields[n])); }
+        status.textContent = 'Please fix the highlighted fields.';
+        return busy(false);
       }
-      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Send failed');
-      form.innerHTML = '<div class="done"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h2 style="font-size:1.6rem">Thank you!</h2><p style="color:var(--muted)">Your request has been sent. I\'ll be in touch soon to confirm your appointment.</p><p style="color:var(--muted)">Need me sooner? Call or text <a href="tel:+16476296061">647-629-6061</a>.</p></div>';
-      form.scrollIntoView({ block: 'center' });
-    } catch (err) {
-      btn.disabled = false; btn.textContent = 'Send request';
-      status.innerHTML = 'Sorry, that didn\'t send. Please call or text <a href="tel:+16476296061">647-629-6061</a>.';
-    }
+      if (code === 429) { status.textContent = 'Too many tries. Please wait a minute and send again.'; return busy(false); }
+      if (code === 400 || code === 403) throw new Error('rejected');
+    } catch (err) { /* fall through to the backup */ }
+    try {
+      const r = await sendBackup();
+      if (r === 'ok') return finish();
+      if (r === 'activate') {
+        status.textContent = 'Almost ready: this form needs a one-time activation. Check the inbox (and spam) for an "Activate Form" email, click it, then send again.';
+        return busy(false);
+      }
+    } catch (err) { /* both failed */ }
+    busy(false);
+    status.textContent = "Sorry, that didn't go through. Your details are saved. You can text them to me in one tap:";
+    document.getElementById('smsFallback').href = `sms:${PHONE}${/iPhone|iPad|Mac/.test(navigator.userAgent) ? '&' : '?'}body=${encodeURIComponent(smsBody())}`;
+    fallback.hidden = false;
   });
+
+  document.getElementById('again').addEventListener('click', () => {
+    form.reset(); form._ts.value = Date.now();
+    ['urgentNote', 'providerField', 'eveningNote'].forEach(id => document.getElementById(id).hidden = true);
+    form.hidden = false; done.hidden = true; show(0);
+  });
+
+  // Plain (no-JavaScript) posts come back here with ?sent=1 or ?error=…
+  const q = new URLSearchParams(location.search);
+  show(0, false);
+  if (q.get('sent')) { form.hidden = true; done.hidden = false; }
+  else if (q.get('error')) status.textContent = "Sorry, that didn't go through. Please call or text 647-629-6061.";
 })();
 </script>
 </body>

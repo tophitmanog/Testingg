@@ -1,0 +1,14 @@
+{
+  "name": "booking-page",
+  "version": "1.0.0",
+  "private": true,
+  "description": "One-page appointment request site with a Cloudflare Worker that emails each request",
+  "scripts": {
+    "test": "node --test worker/index.test.mjs",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
