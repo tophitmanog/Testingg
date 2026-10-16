@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book with Stephanie | Charisma Dental</title>
+<meta name="description" content="Book a dental appointment at Charisma Dental in Concord with Stephanie Pauls, Dental Outreach Coordinator. Open 7 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap">
+<style>
+  :root {
+    --teal: #5fbdb5; --teal-d: #23857e; --teal-50: #e8f6f4; --teal-100: #cdebe7;
+    --ink: #2f3a3e; --muted: #5f6b70; --line: #dfe9e8; --bg: #fbfdfd; --card: #fff;
+    --sun: #ffd36b; --coral: #ff8a7a; --radius: 20px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; font-family: "Nunito", system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.55; font-size: 17px; }
+  img { display: block; max-width: 100%; }
+  a { color: var(--teal-d); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+  h1, h2, h3 { line-height: 1.12; margin: 0 0 .4em; letter-spacing: -.01em; }
+  h1 { font-size: clamp(2.1rem, 5.5vw, 3.4rem); font-weight: 800; }
+  h2 { font-size: clamp(1.6rem, 3.6vw, 2.3rem); font-weight: 800; }
+  .eyebrow { display: inline-block; font-size: .78rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--teal-d); background: var(--teal-50); padding: 6px 14px; border-radius: 99px; margin-bottom: 14px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font: inherit; font-weight: 800; text-decoration: none; border: 0; border-radius: 99px; padding: 14px 24px; cursor: pointer; transition: transform .15s, box-shadow .15s, background .15s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--teal-d); color: #fff; box-shadow: 0 10px 24px -10px rgba(35,133,126,.7); }
+  .btn-primary:hover { background: #1c6e68; }
+  .btn-ghost { background: #fff; color: var(--ink); border: 2px solid var(--line); }
+  .btn svg { width: 18px; height: 18px; }
+  :focus-visible { outline: 3px solid var(--sun); outline-offset: 3px; }
+
+  /* header */
+  header { position: sticky; top: 0; z-index: 20; background: rgba(251,253,253,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+  .brand .dot { width: 38px; height: 38px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #c9cfd1, #9aa3a6); }
+  .brand b { display: block; font-size: .78rem; letter-spacing: .14em; color: var(--muted); font-weight: 700; }
+  .brand span { display: block; font-size: 1.25rem; letter-spacing: .1em; color: var(--teal); font-weight: 800; margin-top: -4px; }
+  header .btn { padding: 10px 18px; font-size: .95rem; }
+
+  /* hero */
+  .hero { padding: 48px 0 56px; background: radial-gradient(700px 400px at 90% 0%, var(--teal-50), transparent 70%), radial-gradient(500px 300px at 0% 100%, #fff6dd, transparent 70%); }
+  .hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+  .hero p.lead { font-size: 1.15rem; color: var(--muted); max-width: 34em; margin: 0 0 24px; }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .hero figure { margin: 0; position: relative; }
+  .hero figure img { border-radius: 28px; aspect-ratio: 4/4.4; object-fit: cover; width: 100%; box-shadow: 0 30px 60px -30px rgba(47,58,62,.45); }
+  .badge { position: absolute; left: -16px; bottom: 24px; background: #fff; border-radius: 16px; padding: 12px 16px; box-shadow: 0 14px 30px -14px rgba(47,58,62,.4); font-weight: 800; font-size: .95rem; }
+  .badge small { display: block; font-weight: 600; color: var(--muted); font-size: .8rem; }
+  .facts { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; padding: 0; list-style: none; }
+  .facts li { background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 6px 14px; font-weight: 700; font-size: .9rem; }
+
+  /* services */
+  section { padding: 64px 0; }
+  .center { text-align: center; max-width: 40em; margin: 0 auto 32px; }
+  .center p { color: var(--muted); margin: 0; }
+  .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; transition: transform .2s, box-shadow .2s; }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -24px rgba(47,58,62,.45); }
+  .card img { aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+  .card div { padding: 16px 18px 20px; }
+  .card h3 { font-size: 1.1rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .95rem; }
+
+  /* booking */
+  .book { background: linear-gradient(160deg, var(--teal-50), #f3fbfa 60%, #fff); }
+  .book .wrap { display: grid; grid-template-columns: .85fr 1.15fr; gap: 36px; align-items: start; }
+  .contact-card { background: var(--ink); color: #e6eeef; border-radius: var(--radius); padding: 28px; }
+  .contact-card h3 { color: #fff; font-size: 1.35rem; }
+  .contact-card .role { color: var(--teal); font-weight: 800; font-size: .85rem; letter-spacing: .12em; text-transform: uppercase; margin: -4px 0 18px; }
+  .contact-card ul { list-style: none; padding: 0; margin: 0 0 22px; display: grid; gap: 12px; }
+  .contact-card li { display: flex; gap: 12px; align-items: flex-start; }
+  .contact-card li svg { flex: none; width: 20px; height: 20px; margin-top: 3px; color: var(--teal); }
+  .contact-card a { color: #fff; text-decoration: none; word-break: break-word; }
+  .contact-card a:hover { text-decoration: underline; }
+  .hours { border-top: 1px solid rgba(255,255,255,.15); padding-top: 16px; font-size: .95rem; }
+  .hours div { display: flex; justify-content: space-between; gap: 12px; }
+  form { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; box-shadow: 0 30px 60px -40px rgba(47,58,62,.5); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .field { display: grid; gap: 6px; margin-bottom: 14px; }
+  label, legend { font-weight: 700; font-size: .92rem; }
+  .req { color: #c0392b; }
+  input, select, textarea { font: inherit; font-size: 1rem; color: var(--ink); width: 100%; padding: 12px 14px; border: 2px solid var(--line); border-radius: 12px; background: #fff; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 4px var(--teal-50); }
+  textarea { min-height: 96px; resize: vertical; }
+  fieldset { border: 0; padding: 0; margin: 0 0 14px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .chips label { font-weight: 600; display: inline-flex; align-items: center; gap: 6px; border: 2px solid var(--line); border-radius: 99px; padding: 8px 14px; cursor: pointer; }
+  .chips input { width: auto; accent-color: var(--teal-d); }
+  .chips label:has(input:checked) { border-color: var(--teal); background: var(--teal-50); }
+  .consent { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; font-size: .9rem; color: var(--muted); margin: 4px 0 18px; }
+  .consent input { width: auto; margin-top: 4px; accent-color: var(--teal-d); }
+  .hp { position: absolute; left: -9999px; }
+  .err { color: #c0392b; font-size: .85rem; font-weight: 700; display: none; }
+  .invalid .err { display: block; }
+  .invalid input, .invalid select { border-color: #e58c80; }
+  .status { margin-top: 14px; font-weight: 700; }
+  .done { text-align: center; padding: 40px 20px; }
+  .done .tick { width: 72px; height: 72px; border-radius: 50%; background: var(--teal-50); color: var(--teal-d); display: grid; place-items: center; margin: 0 auto 16px; }
+  .done .tick svg { width: 36px; height: 36px; }
+  form .btn { width: 100%; font-size: 1.05rem; }
+  .note { font-size: .82rem; color: var(--muted); margin-top: 12px; text-align: center; }
+
+  footer { background: var(--ink); color: #b8c4c7; padding: 28px 0 96px; font-size: .9rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer a { color: #fff; }
+
+  .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: none; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: #fff; border-top: 1px solid var(--line); box-shadow: 0 -10px 30px -20px rgba(0,0,0,.4); }
+  .mbar .btn { flex: 1; padding: 12px 10px; font-size: .95rem; }
+
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .hero .wrap, .book .wrap { grid-template-columns: 1fr; }
+    .hero figure { max-width: 460px; }
+    .cards { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) {
+    body { font-size: 16px; }
+    .cards, .grid2 { grid-template-columns: 1fr; }
+    header .btn { display: none; }
+    .mbar { display: flex; }
+    form, .contact-card { padding: 20px; }
+    .badge { left: 12px; }
+    section { padding: 48px 0; }
+  }
+  @media (min-width: 561px) { footer { padding-bottom: 28px; } }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .btn, .card { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Charisma Dental">
+      <i class="dot" aria-hidden="true"></i>
+      <div><b>CHARISMA</b><span>DENTAL</span></div>
+    </a>
+    <a class="btn btn-primary" href="#book">Book a visit</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Charisma Dental · Concord</span>
+        <h1>Book your visit with Stephanie</h1>
+        <p class="lead">Hi, I'm Stephanie, the Dental Outreach Coordinator at Charisma Dental. Send me a request and I'll personally call or text you back to set up your appointment.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#book">Request an appointment</a>
+          <a class="btn btn-ghost" href="tel:+16476296061">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>
+            647-629-6061
+          </a>
+        </div>
+        <ul class="facts">
+          <li>Open 7 days</li>
+          <li>New patients welcome</li>
+          <li>Families &amp; kids</li>
+        </ul>
+      </div>
+      <figure class="reveal">
+        <img src="img/hero-smile.webp" alt="Smiling patient" width="800" height="880">
+        <div class="badge">I'll get back to you<small>by phone or text</small></div>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="center reveal">
+        <span class="eyebrow">How I can help</span>
+        <h2>Care for the whole family</h2>
+        <p>Tell me what you need and I'll find a time that works for you.</p>
+      </div>
+      <div class="cards">
+        <article class="card reveal"><img src="img/cleaning.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Cleanings &amp; check-ups</h3><p>Regular visits to keep your smile healthy.</p></div></article>
+        <article class="card reveal"><img src="img/family.webp" alt="" loading="lazy" width="600" height="450"><div><h3>New patients</h3><p>New to the clinic? I'll help you get started.</p></div></article>
+        <article class="card reveal"><img src="img/kids.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Kids &amp; families</h3><p>Book the whole family at once.</p></div></article>
+        <article class="card reveal"><img src="img/consultation.webp" alt="" loading="lazy" width="600" height="450"><div><h3>Consultations</h3><p>Questions about a treatment? Let's talk.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="book" id="book">
+    <div class="wrap">
+      <aside class="contact-card reveal">
+        <h3>Stephanie Pauls</h3>
+        <p class="role">Dental Outreach Coordinator</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><a href="tel:+16476296061">647-629-6061</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><a href="sms:+16476296061">Send me a text</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg><a href="mailto:StephanieCharismaDental@gmail.com">StephanieCharismaDental@gmail.com</a></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg><a href="https://www.google.com/maps/search/?api=1&query=9000+Jane+Street+Concord+ON+L4K+0M6" target="_blank" rel="noopener">9000 Jane Street, Concord, ON L4K 0M6</a></li>
+        </ul>
+        <div class="hours">
+          <div><span>Monday – Friday</span><span>9am – 9pm</span></div>
+          <div><span>Saturday – Sunday</span><span>8am – 6pm</span></div>
+        </div>
+      </aside>
+
+      <div class="reveal">
+        <form id="bookingForm" action="https://formsubmit.co/punisherog7@gmail.com" method="POST" novalidate>
+          <h2 style="font-size:1.6rem">Request an appointment</h2>
+          <p style="color:var(--muted);margin:0 0 18px">Fill this in and I'll contact you to confirm a time.</p>
+
+          <input type="hidden" name="_subject" value="TEST - New appointment request from your website">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="grid2">
+            <div class="field"><label for="name">Full name <span class="req">*</span></label><input id="name" name="Name" autocomplete="name" required><span class="err">Please enter your name.</span></div>
+            <div class="field"><label for="phone">Phone <span class="req">*</span></label><input id="phone" name="Phone" type="tel" autocomplete="tel" inputmode="tel" required pattern="[0-9+()\-\s.]{7,}"><span class="err">Please enter a phone number.</span></div>
+          </div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email"><span class="err">Please check your email address.</span></div>
+          <div class="grid2">
+            <div class="field"><label for="reason">Reason for visit <span class="req">*</span></label>
+              <select id="reason" name="Reason" required>
+                <option value="">Choose one</option>
+                <option>New patient appointment</option>
+                <option>Cleaning &amp; check-up</option>
+                <option>Toothache or emergency</option>
+                <option>Kids / family appointment</option>
+                <option>Consultation</option>
+                <option>Other</option>
+              </select><span class="err">Please choose a reason.</span></div>
+            <div class="field"><label for="date">Preferred date</label><input id="date" name="Preferred date" type="date"></div>
+          </div>
+          <fieldset>
+            <legend>Best time</legend>
+            <div class="chips">
+              <label><input type="radio" name="Best time" value="Morning"> Morning</label>
+              <label><input type="radio" name="Best time" value="Afternoon"> Afternoon</label>
+              <label><input type="radio" name="Best time" value="Evening"> Evening</label>
+              <label><input type="radio" name="Best time" value="Any time" checked> Any time</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>How should I contact you?</legend>
+            <div class="chips">
+              <label><input type="radio" name="Contact by" value="Call" checked> Call</label>
+              <label><input type="radio" name="Contact by" value="Text"> Text</label>
+              <label><input type="radio" name="Contact by" value="Email"> Email</label>
+            </div>
+          </fieldset>
+          <div class="field"><label for="msg">Anything else?</label><textarea id="msg" name="Message" placeholder="e.g. number of people, insurance, questions"></textarea></div>
+          <div class="field" style="margin:0">
+            <label class="consent"><input type="checkbox" id="consent" name="Consent" value="Yes" required> I agree to be contacted about my appointment request. Please don't include private medical details here.</label>
+            <span class="err" style="margin:-12px 0 12px">Please tick the box so I can contact you.</span>
+          </div>
+          <button class="btn btn-primary" type="submit">Send request</button>
+          <p class="status" role="status" aria-live="polite"></p>
+          <p class="note">This is a request, not a confirmed booking. I'll get back to you to confirm.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Stephanie Pauls · Charisma Dental, 9000 Jane Street, Concord</span>
+    <span><a href="tel:+16476296061">647-629-6061</a></span>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Quick actions">
+  <a class="btn btn-ghost" href="tel:+16476296061">Call</a>
+  <a class="btn btn-ghost" href="sms:+16476296061">Text</a>
+  <a class="btn btn-primary" href="#book">Book</a>
+</nav>
+
+<script>
+(() => {
+  // Reveal on scroll
+  const els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .12 });
+    els.forEach(el => io.observe(el));
+  } else els.forEach(el => el.classList.add('in'));
+
+  // No past dates
+  const d = document.getElementById('date');
+  const t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset());
+  d.min = t.toISOString().slice(0, 10);
+
+  // Booking form: validate, then send through FormSubmit's AJAX endpoint
+  const form = document.getElementById('bookingForm');
+  const status = form.querySelector('.status');
+  const btn = form.querySelector('button[type=submit]');
+  const check = el => {
+    const ok = el.type === 'checkbox' ? el.checked : el.checkValidity() && (!el.required || el.value.trim() !== '');
+    el.closest('.field').classList.toggle('invalid', !ok);
+    return ok;
+  };
+  form.querySelectorAll('input, select').forEach(el => {
+    if (el.closest('.field')) el.addEventListener('change', () => check(el));
+  });
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    const fields = [...form.querySelectorAll('.field input, .field select')];
+    const bad = fields.filter(el => !check(el));
+    if (bad.length) { bad[0].focus(); status.textContent = 'Please fix the highlighted fields.'; return; }
+    if (form._honey.value) return;
+    btn.disabled = true; btn.textContent = 'Sending…'; status.textContent = '';
+    try {
+      const res = await fetch(form.action.replace('formsubmit.co/', 'formsubmit.co/ajax/'), {
+        method: 'POST', headers: { Accept: 'application/json' }, body: new FormData(form)
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok || String(data.success) !== 'true') throw new Error(data.message || 'Send failed');
+      form.innerHTML = '<div class="done"><div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div><h2 style="font-size:1.6rem">Thank you!</h2><p style="color:var(--muted)">Your request has been sent. I\'ll be in touch soon to confirm your appointment.</p><p style="color:var(--muted)">Need me sooner? Call or text <a href="tel:+16476296061">647-629-6061</a>.</p></div>';
+      form.scrollIntoView({ block: 'center' });
+    } catch (err) {
+      btn.disabled = false; btn.textContent = 'Send request';
+      status.innerHTML = 'Sorry, that didn\'t send. Please call or text <a href="tel:+16476296061">647-629-6061</a>.';
+    }
+  });
+})();
+</script>
+</body>
+</html>
