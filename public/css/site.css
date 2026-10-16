@@ -343,3 +343,4 @@ footer .legal a { color: #c9d6cc; }
 @media (max-width: 640px) {
   .band .inner::before { background: linear-gradient(0deg, rgba(31, 42, 36, .9) 40%, rgba(31, 42, 36, .15)); }
 }
+.recap .who .initials { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; flex: none; background: var(--clay); color: #fff; font: 400 1.05rem var(--serif); letter-spacing: .04em; }
