@@ -9,6 +9,6 @@
     "deploy": "npx wrangler deploy"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   }
 }
