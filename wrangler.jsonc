@@ -27,8 +27,8 @@
   ],
   // The site's own address. Cloudflare adds the DNS record and certificate automatically.
   "routes": [
-    { "pattern": "dentalwithstephanie.com", "custom_domain": true },
-    { "pattern": "www.dentalwithstephanie.com", "custom_domain": true }
+    { "pattern": "sharmagroup.dev", "custom_domain": true },
+    { "pattern": "www.sharmagroup.dev", "custom_domain": true }
   ],
   "observability": { "enabled": true }
 }

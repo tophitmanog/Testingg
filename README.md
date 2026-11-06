@@ -6,7 +6,7 @@
 
 Real-time availability · Booking database · Staff dashboard · Branded email notifications · Runs on Cloudflare's free plan
 
-[**Live site**](https://dentalwithstephanie.com/) · [**Dashboard**](https://dentalwithstephanie.com/admin/) · [Setup](#setup) · [How it works](#how-it-works) · [API](#api-reference)
+[**Live site**](https://sharmagroup.dev/) · [**Dashboard**](https://sharmagroup.dev/admin/) · [Setup](#setup) · [How it works](#how-it-works) · [API](#api-reference)
 
 <br>
 
@@ -105,7 +105,7 @@ Four steps, with a summary panel on the left that fills in as the patient goes.
 
 ## The dashboard
 
-Private, password-protected, at [`/admin/`](https://dentalwithstephanie.com/admin/). It works on phones too.
+Private, password-protected, at [`/admin/`](https://sharmagroup.dev/admin/). It works on phones too.
 
 <img src="docs/screenshots/dashboard-login.jpg" alt="Dashboard sign-in" width="100%">
 
@@ -215,7 +215,7 @@ Add these in **Cloudflare → Workers & Pages → testingg → Settings → Vari
 
 Without a verified domain, Resend only delivers to the email address the Resend account was created with. Use that address for `BOOKING_TO_EMAIL`.
 
-**Check the setup:** open [`/api/health`](https://dentalwithstephanie.com/api/health). It should show `"email": true` and `"admin": true`.
+**Check the setup:** open [`/api/health`](https://sharmagroup.dev/api/health). It should show `"email": true` and `"admin": true`.
 
 Bookings are saved even before email is set up. They always appear in the dashboard.
 
@@ -378,7 +378,7 @@ When Stephanie takes it over:
 - [ ] She creates a free Resend account with her own email. Update `RESEND_API_KEY` and `BOOKING_TO_EMAIL`.
 - [ ] Set a new `ADMIN_PASSWORD` just for her.
 - [ ] Confirm with the clinic that a separate booking page for its address is fine.
-- [x] Custom domain `dentalwithstephanie.com` (set in `wrangler.jsonc` under `routes`).
+- [x] Custom domain `sharmagroup.dev` (set in `wrangler.jsonc` under `routes`).
 - [ ] Verify the domain in Resend, set `BOOKING_FROM_EMAIL` to an address on it, then set `CONFIRM_PATIENTS=true`.
 
 ---
