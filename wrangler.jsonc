@@ -25,5 +25,10 @@
     // At most 60 open-times lookups per IP address per minute (normal use is a handful).
     { "name": "API_LIMITER", "namespace_id": "1004", "simple": { "limit": 60, "period": 60 } }
   ],
+  // The site's own address. Cloudflare adds the DNS record and certificate automatically.
+  "routes": [
+    { "pattern": "dentalwithstephanie.com", "custom_domain": true },
+    { "pattern": "www.dentalwithstephanie.com", "custom_domain": true }
+  ],
   "observability": { "enabled": true }
 }
