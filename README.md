@@ -191,7 +191,7 @@ flowchart LR
 | Deploys | [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/): every push to `main` goes live automatically |
 | Tests | Node's built-in test runner and in-memory SQLite (`node:test`, `node:sqlite`) |
 | Map | Google Maps embed |
-| Photos | Illustrative, AI-generated images (see [Design notes](#design-notes)) |
+| Photos | Illustrative placeholder images (see [Design notes](#design-notes)) |
 
 There are **no npm dependencies**.
 
@@ -393,7 +393,7 @@ When Stephanie takes it over:
   - keyboard-friendly controls with visible focus outlines and a skip link
   - labelled form fields, error messages tied to their fields, and announcements for screen readers
   - good colour contrast and large tap targets
-- **Photos:** the photos in `public/img/` are **AI-generated illustrations** made for this design. They don't show the real clinic, its staff or its patients. Replace them with real photos before relying on the site publicly.
+- **Photos:** the photos in `public/img/` are **illustrative placeholder images** made for this design. They don't show the real clinic, its staff or its patients. Replace them with real photos before relying on the site publicly.
 
 <p>
 <img src="public/img/studio.webp" alt="" width="130">
