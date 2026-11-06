@@ -13,7 +13,7 @@
   function toast(text) {
     const t = $('toast');
     t.textContent = text; t.classList.add('show');
-    clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('show'), 2200);
+    clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove('show'), 3500);
   }
 
   async function api(path, opts = {}) {
@@ -137,7 +137,11 @@
     if (statusBtn || e.target.closest('[data-save]')) {
       const body = statusBtn ? { status: statusBtn.dataset.status, notes } : { notes };
       const { status, data } = await api('bookings/' + id, { method: 'PATCH', body: JSON.stringify(body) }).catch(() => ({}));
-      if (status === 200) { toast(statusBtn ? `Marked ${LABEL[data.booking.status].toLowerCase()}` : 'Notes saved'); loadBookings(true); }
+      if (status === 200) {
+        const patientNote = { sent: ' · patient emailed', failed: ' · email to the patient failed', no_email: ' · no email on file, call or text them', off: '' }[data.patient] || '';
+        toast(statusBtn ? `Marked ${LABEL[data.booking.status].toLowerCase()}${patientNote}` : 'Notes saved');
+        loadBookings(true);
+      }
       else if (data?.error === 'slot_taken') toast('That time has been booked by someone else');
       else toast('Could not save. Please try again.');
     }

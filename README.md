@@ -142,7 +142,7 @@ Each new booking sends a branded email styled like the website. It has **Call**,
 
 <p align="center"><img src="docs/screenshots/email-new-booking.jpg" alt="New booking email" width="460"></p>
 
-Patients can also get a confirmation email once a domain is verified. See [`CONFIRM_PATIENTS`](#setup).
+Once a domain is verified in Resend and [`CONFIRM_PATIENTS`](#setup) is on, patients are emailed too: when they book ("request received"), when Stephanie marks the booking **Confirmed** (with an Add to Google Calendar button), and if she **cancels** it (with her number to rebook). After each change the dashboard says whether the patient was emailed, or that there was no email on file.
 
 ---
 
@@ -211,7 +211,7 @@ Add these in **Cloudflare → Workers & Pages → testingg → Settings → Vari
 | `RESEND_API_KEY` | API key from [resend.com](https://resend.com) with *Sending access* | Booking emails |
 | `BOOKING_TO_EMAIL` | Where booking emails go (comma-separate several) | Booking emails |
 | `BOOKING_FROM_EMAIL` | `Booking page <onboarding@resend.dev>` | Booking emails |
-| `CONFIRM_PATIENTS` | `true` | Optional patient confirmations, once a domain is verified in Resend |
+| `CONFIRM_PATIENTS` | `true` | Optional: email patients when they book and when a booking is confirmed or cancelled (needs a domain verified in Resend) |
 
 Without a verified domain, Resend only delivers to the email address the Resend account was created with. Use that address for `BOOKING_TO_EMAIL`.
 
@@ -378,7 +378,7 @@ When Stephanie takes it over:
 - [ ] She creates a free Resend account with her own email. Update `RESEND_API_KEY` and `BOOKING_TO_EMAIL`.
 - [ ] Set a new `ADMIN_PASSWORD` just for her.
 - [ ] Confirm with the clinic that a separate booking page for its address is fine.
-- [ ] Optional: a custom domain such as `bookwithstephanie.ca`, verified in Resend, then set `CONFIRM_PATIENTS=true`.
+- [ ] Optional: a custom domain such as `dentalwithstephanie.com`, verified in Resend, then set `CONFIRM_PATIENTS=true`.
 
 ---
 

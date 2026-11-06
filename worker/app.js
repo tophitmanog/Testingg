@@ -5,7 +5,9 @@
 //   RESEND_API_KEY      API key from https://resend.com, for email notifications.
 //   BOOKING_TO_EMAIL    Where new-booking emails go (comma-separate several addresses).
 //   BOOKING_FROM_EMAIL  Sender. Without your own domain: "Booking page <onboarding@resend.dev>".
-//   CONFIRM_PATIENTS    Optional, "true" to email patients a confirmation. Needs a domain verified in Resend.
+//   CONFIRM_PATIENTS    Optional, "true" to email patients: when they book, and when a booking is confirmed or
+//                       cancelled in the dashboard. Needs a domain verified in Resend (the onboarding@resend.dev
+//                       sender only delivers to the Resend account's own address).
 
 const RESEND_URL = "https://api.resend.com/emails";
 const MAX_BODY_BYTES = 20_000;
@@ -77,7 +79,7 @@ async function createBooking(request, env, url) {
   const emails = [];
   if (emailConfigured(env)) {
     emails.push(sendEmail(env, { to: list(env.BOOKING_TO_EMAIL), replyTo: b.email || undefined, ...staffEmail(b, url.origin) }));
-    if (env.CONFIRM_PATIENTS === "true" && b.email) emails.push(sendEmail(env, { to: [b.email], ...patientEmail(b) }));
+    if (patientEmailsOn(env) && b.email) emails.push(sendEmail(env, { to: [b.email], ...patientEmail(b) }));
   }
   const sent = await Promise.all(emails);
   return json({
@@ -106,7 +108,13 @@ async function adminRoute(request, env, url) {
     const body = await readJson(request);
     if (!body) return json({ ok: false, error: "bad_request" }, 400);
     const out = await s.updateBooking(Number(m[1]), body);
-    return json(out, out.ok ? 200 : out.error === "not_found" ? 404 : 409);
+    if (!out.ok) return json(out, out.error === "not_found" ? 404 : 409);
+    const { previous, ...reply } = out;
+    const changedTo = out.booking.status !== previous ? out.booking.status : null;
+    if (changedTo === "confirmed" || changedTo === "cancelled") {
+      reply.patient = await notifyPatient(env, s, out.booking, changedTo);
+    }
+    return json(reply);
   }
   if (m && method === "DELETE") {
     const out = await s.deleteBooking(Number(m[1]));
@@ -227,6 +235,22 @@ function emailConfigured(env) {
   return Boolean(env.RESEND_API_KEY && env.BOOKING_TO_EMAIL && env.BOOKING_FROM_EMAIL);
 }
 
+function patientEmailsOn(env) {
+  return emailConfigured(env) && env.CONFIRM_PATIENTS === "true";
+}
+
+// Tells the patient their booking was confirmed or cancelled.
+// Returns what happened, for the dashboard: "sent", "failed", "no_email" or "off".
+async function notifyPatient(env, s, b, status) {
+  if (!patientEmailsOn(env)) return "off";
+  if (!b.email) return "no_email";
+  const { slotMinutes } = await s.getSettings();
+  const message = status === "confirmed" ? confirmedEmail(b, slotMinutes) : cancelledEmail(b);
+  const sent = await sendEmail(env, { to: [b.email], ...message });
+  console.log(JSON.stringify({ event: sent ? "patient_notified" : "patient_notify_failed", ref: b.ref, status }));
+  return sent ? "sent" : "failed";
+}
+
 async function sendEmail(env, { to, replyTo, subject, text, html }) {
   try {
     const res = await fetch(RESEND_URL, {
@@ -305,6 +329,54 @@ export function staffEmail(b, origin) {
     rows.map(([k, v]) => `${k}: ${v}`).join("\n") +
     `${b.message ? `\n\nNote:\n${b.message}` : ""}\n\nDashboard: ${origin}/admin/`;
   return { subject, text, html };
+}
+
+const ADDRESS = "9000 Jane Street, Concord, ON L4K 0M6";
+const DIRECTIONS = "https://www.google.com/maps/dir/?api=1&destination=9000+Jane+Street+Concord+ON+L4K+0M6";
+
+// Google Calendar "add event" link for a booking, in the clinic's time zone.
+export function calendarLink(b, slotMinutes = 30) {
+  const [h, m] = b.time.split(":").map(Number);
+  const end = h * 60 + m + slotMinutes;
+  const day = b.date.replace(/-/g, "");
+  const stamp = (mins) => `${day}T${String(Math.floor(mins / 60)).padStart(2, "0")}${String(mins % 60).padStart(2, "0")}00`;
+  const q = new URLSearchParams({
+    action: "TEMPLATE", text: `Dental visit: ${b.service}`, dates: `${stamp(h * 60 + m)}/${stamp(end)}`,
+    ctz: "America/Toronto", location: ADDRESS, details: `Reference ${b.ref}. Questions? Call or text 647-629-6061.`,
+  });
+  return `https://calendar.google.com/calendar/render?${q}`;
+}
+
+export function confirmedEmail(b, slotMinutes = 30) {
+  const when = `${prettyDate(b.date)} at ${prettyTime(b.time)}`;
+  const rows = [["When", when], ["Visit", b.service], ["Where", ADDRESS], ["Reference", b.ref]];
+  const html = frame({
+    eyebrow: "Visit confirmed",
+    title: `You're all set, ${esc(b.name.split(" ")[0])}.`,
+    intro: `Your visit on <strong>${esc(when)}</strong> is confirmed. See you then! — Stephanie`,
+    body:
+      detailTable(rows) +
+      `<div style="margin-top:18px">${button(calendarLink(b, slotMinutes), "Add to Google Calendar", "#2f4a3a")}${button(DIRECTIONS, "Directions", "#efe6d8", "#2f4a3a")}</div>` +
+      `<p style="margin:14px 0 0;font:14px/1.6 Arial,sans-serif;color:#5d5a52">Need to change or cancel? Call or text <a href="tel:+16476296061" style="color:#2f4a3a">647-629-6061</a>.</p>`,
+  });
+  const text = `You're all set, ${b.name}. Your visit on ${when} is confirmed.\n\n${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\nNeed to change or cancel? Call or text 647-629-6061.\n\nStephanie`;
+  return { subject: `Confirmed: your visit on ${when}`, text, html };
+}
+
+export function cancelledEmail(b) {
+  const when = `${prettyDate(b.date)} at ${prettyTime(b.time)}`;
+  const rows = [["Was booked for", when], ["Visit", b.service], ["Reference", b.ref]];
+  const html = frame({
+    eyebrow: "Visit cancelled",
+    accent: "#b4532f",
+    title: `Your visit has been cancelled.`,
+    intro: `Hi ${esc(b.name.split(" ")[0])}, your visit on <strong>${esc(when)}</strong> has been cancelled. I'd be happy to find you a new time. — Stephanie`,
+    body:
+      detailTable(rows) +
+      `<div style="margin-top:18px">${button("tel:+16476296061", "Call 647-629-6061", "#2f4a3a")}${button("sms:+16476296061", "Text me", "#c2734f")}</div>`,
+  });
+  const text = `Hi ${b.name}, your visit on ${when} has been cancelled. Call or text 647-629-6061 to find a new time.\n\n${rows.map(([k, v]) => `${k}: ${v}`).join("\n")}\n\nStephanie`;
+  return { subject: `Cancelled: your visit on ${when}`, text, html };
 }
 
 export function patientEmail(b) {

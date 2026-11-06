@@ -267,7 +267,7 @@ export class Store {
     const row = this.sql
       .exec(`UPDATE bookings SET status = ?, notes = ?, updated_at = ? WHERE id = ? RETURNING *`, status, notes, now.toISOString(), current.id)
       .toArray()[0];
-    return { ok: true, booking: shape(row) };
+    return { ok: true, booking: shape(row), previous: current.status };
   }
 
   deleteBooking(id) {

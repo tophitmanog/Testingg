@@ -246,6 +246,50 @@ test("rate-limits the open-times lookup", async () => {
   assert.equal(res.headers.get("Strict-Transport-Security"), "max-age=31536000; includeSubDomains");
 });
 
+test("confirming or cancelling emails the patient when patient emails are on", async () => {
+  env.CONFIRM_PATIENTS = "true";
+  await handle(req("/api/bookings", { method: "POST", body: booking() }), env);
+  const cookie = await adminCookie();
+  const id = store.listBookings({ view: "all" }, NOW)[0].id;
+  sent = [];
+
+  let out = await (await handle(req(`/api/admin/bookings/${id}`, { method: "PATCH", cookie, body: { status: "confirmed" } }), env)).json();
+  assert.equal(out.patient, "sent");
+  assert.equal(out.previous, undefined, "internal field stays internal");
+  assert.equal(sent.length, 1);
+  assert.deepEqual(sent[0].body.to, ["jane@example.com"]);
+  assert.equal(sent[0].body.subject, "Confirmed: your visit on Thursday, October 15 at 10:00 AM");
+  assert.match(sent[0].body.html, /calendar\.google\.com/);
+
+  sent = [];
+  out = await (await handle(req(`/api/admin/bookings/${id}`, { method: "PATCH", cookie, body: { notes: "Called" } }), env)).json();
+  assert.equal(out.patient, undefined, "saving notes doesn't email anyone");
+  assert.equal(sent.length, 0);
+
+  out = await (await handle(req(`/api/admin/bookings/${id}`, { method: "PATCH", cookie, body: { status: "cancelled" } }), env)).json();
+  assert.equal(out.patient, "sent");
+  assert.match(sent[0].body.subject, /^Cancelled: your visit on /);
+
+  sent = [];
+  out = await (await handle(req(`/api/admin/bookings/${id}`, { method: "PATCH", cookie, body: { status: "new" } }), env)).json();
+  assert.equal(out.patient, undefined, "restoring doesn't email");
+  assert.equal(sent.length, 0);
+});
+
+test("patient emails report why they weren't sent", async () => {
+  await handle(req("/api/bookings", { method: "POST", body: booking({ email: "", contactBy: "Call" }) }), env);
+  const cookie = await adminCookie();
+  const id = store.listBookings({ view: "all" }, NOW)[0].id;
+  let out = await (await handle(req(`/api/admin/bookings/${id}`, { method: "PATCH", cookie, body: { status: "confirmed" } }), env)).json();
+  assert.equal(out.patient, "off", "CONFIRM_PATIENTS not set");
+  env.CONFIRM_PATIENTS = "true";
+  await handle(req(`/api/admin/bookings/${id}`, { method: "PATCH", cookie, body: { status: "new" } }), env);
+  sent = [];
+  out = await (await handle(req(`/api/admin/bookings/${id}`, { method: "PATCH", cookie, body: { status: "confirmed" } }), env)).json();
+  assert.equal(out.patient, "no_email");
+  assert.equal(sent.length, 0);
+});
+
 test("health endpoint", async () => {
   const out = await (await handle(req("/api/health"), env)).json();
   assert.deepEqual(out, { ok: true, email: true, admin: true });
