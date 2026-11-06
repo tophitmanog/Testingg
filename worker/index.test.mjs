@@ -224,6 +224,19 @@ test("emails escape what visitors type", () => {
   assert.ok(html.includes("&lt;b&gt;Eve&lt;/b&gt;"));
 });
 
+test("rejects oversized bodies even without a Content-Length header", async () => {
+  const big = new ReadableStream({
+    start(c) { c.enqueue(new TextEncoder().encode(JSON.stringify(booking({ message: "x".repeat(30_000) })))); c.close(); },
+  });
+  const request = new Request(ORIGIN + "/api/bookings", {
+    method: "POST", headers: { "Content-Type": "application/json", Origin: ORIGIN }, body: big, duplex: "half",
+  });
+  assert.equal(request.headers.get("Content-Length"), null);
+  const res = await handle(request, env);
+  assert.equal(res.status, 400);
+  assert.equal(store.stats(NOW).total, 0);
+});
+
 test("health endpoint", async () => {
   const out = await (await handle(req("/api/health"), env)).json();
   assert.deepEqual(out, { ok: true, email: true, admin: true });

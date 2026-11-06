@@ -182,9 +182,28 @@ async function allowed(env, request, kind) {
   return success;
 }
 
+// Reads a JSON object body, stopping early if it grows past MAX_BODY_BYTES
+// (the Content-Length check alone misses bodies sent without that header).
 async function readJson(request) {
   try {
-    const body = await request.json();
+    if (!request.body) return null;
+    const reader = request.body.getReader();
+    const chunks = [];
+    let size = 0;
+    for (;;) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      size += value.byteLength;
+      if (size > MAX_BODY_BYTES) {
+        await reader.cancel();
+        return null;
+      }
+      chunks.push(value);
+    }
+    const bytes = new Uint8Array(size);
+    let offset = 0;
+    for (const c of chunks) { bytes.set(c, offset); offset += c.byteLength; }
+    const body = JSON.parse(new TextDecoder().decode(bytes));
     return body && typeof body === "object" && !Array.isArray(body) ? body : null;
   } catch {
     return null;
