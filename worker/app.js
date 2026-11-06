@@ -17,6 +17,8 @@ const SECURITY_HEADERS = {
   "X-Content-Type-Options": "nosniff",
   "Referrer-Policy": "strict-origin-when-cross-origin",
   "Cache-Control": "no-store",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+  "Cross-Origin-Resource-Policy": "same-origin",
 };
 
 export async function handle(request, env) {
@@ -28,6 +30,7 @@ export async function handle(request, env) {
       return json({ ok: true, email: emailConfigured(env), admin: Boolean(env.ADMIN_PASSWORD) });
     }
     if (path === "/api/availability" && method === "GET") {
+      if (!(await allowed(env, request, "api"))) return json({ ok: false, error: "rate_limited" }, 429);
       const out = await store(env).availability();
       return json({ ok: true, ...out }, 200, { "Cache-Control": "no-store" });
     }
@@ -175,7 +178,7 @@ function sameOrigin(request, url) {
 }
 
 async function allowed(env, request, kind) {
-  const limiter = kind === "login" ? env.LOGIN_LIMITER : env.BOOKING_LIMITER;
+  const limiter = { login: env.LOGIN_LIMITER, book: env.BOOKING_LIMITER, api: env.API_LIMITER }[kind];
   if (!limiter) return true;
   const ip = request.headers.get("CF-Connecting-IP") || "unknown";
   const { success } = await limiter.limit({ key: `${kind}:${ip}` });

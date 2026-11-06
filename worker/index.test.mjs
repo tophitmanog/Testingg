@@ -237,6 +237,15 @@ test("rejects oversized bodies even without a Content-Length header", async () =
   assert.equal(store.stats(NOW).total, 0);
 });
 
+test("rate-limits the open-times lookup", async () => {
+  env.API_LIMITER = { limit: async () => ({ success: false }) };
+  assert.equal((await handle(req("/api/availability"), env)).status, 429);
+  env.API_LIMITER = { limit: async () => ({ success: true }) };
+  const res = await handle(req("/api/availability"), env);
+  assert.equal(res.status, 200);
+  assert.equal(res.headers.get("Strict-Transport-Security"), "max-age=31536000; includeSubDomains");
+});
+
 test("health endpoint", async () => {
   const out = await (await handle(req("/api/health"), env)).json();
   assert.deepEqual(out, { ok: true, email: true, admin: true });
