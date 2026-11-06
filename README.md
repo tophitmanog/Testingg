@@ -210,7 +210,7 @@ Add these in **Cloudflare → Workers & Pages → testingg → Settings → Vari
 | `ADMIN_PASSWORD` | A long password | The dashboard |
 | `RESEND_API_KEY` | API key from [resend.com](https://resend.com) with *Sending access* | Booking emails |
 | `BOOKING_TO_EMAIL` | Where booking emails go (comma-separate several) | Booking emails |
-| `BOOKING_FROM_EMAIL` | `Booking page <onboarding@resend.dev>` | Booking emails |
+| `BOOKING_FROM_EMAIL` | `Stephanie <bookings@updates.sharmagroup.dev>` | Booking emails (the address must be on a domain verified in Resend; `onboarding@resend.dev` only reaches the Resend account owner) |
 | `CONFIRM_PATIENTS` | `true` | Optional: email patients when they book and when a booking is confirmed or cancelled (needs a domain verified in Resend) |
 
 Without a verified domain, Resend only delivers to the email address the Resend account was created with. Use that address for `BOOKING_TO_EMAIL`.
@@ -379,7 +379,8 @@ When Stephanie takes it over:
 - [ ] Set a new `ADMIN_PASSWORD` just for her.
 - [ ] Confirm with the clinic that a separate booking page for its address is fine.
 - [x] Custom domain `sharmagroup.dev` (set in `wrangler.jsonc` under `routes`).
-- [ ] Verify the domain in Resend, set `BOOKING_FROM_EMAIL` to an address on it, then set `CONFIRM_PATIENTS=true`.
+- [x] `updates.sharmagroup.dev` verified in Resend, `BOOKING_FROM_EMAIL` on it, `CONFIRM_PATIENTS=true`.
+- [x] Cloudflare firewall: Bot Fight Mode, staff login limited to Canada, booking rate limit.
 
 ---
 
